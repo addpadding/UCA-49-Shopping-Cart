@@ -95,6 +95,8 @@ header {
     top: -9px;
     right: -11px;
     font-size: 10px;
+
+    display: none;
 }
 
 /* 007 */
