@@ -96,4 +96,8 @@ function open_cart_menu() {
 
 }
 
-function save_item_data() { }
+function save_item_data(id_item) {
+    localStorage.setItem("productId_set", id_item)
+
+    window.location = "Details_Cart.html"
+}
