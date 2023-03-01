@@ -2,15 +2,7 @@
 console.log("cart_product")
 
 
-// let product_in_cart = localStorage.getItem("productCart_set")
 let products_Dom_2 = document.querySelector(".product_s")
-
-
-// if (product_in_cart) {
-//     let item_s = JSON.parse(product_in_cart);
-//     draw_cart_ui(item_s)
-// }
-
 
 
 function draw_cart_ui(all_product = []) {
@@ -46,17 +38,17 @@ draw_cart_ui()
 
 
 function remove_item_from_Cart(id_item) {
-    console.log(id_item)
+
+    let product_in_cart = localStorage.getItem("productCart_set")
 
     if (product_in_cart) {
         let item_s = JSON.parse(product_in_cart);
 
         let filter_item = item_s.filter((item) => item.id_obj !== id_item)
-        console.log(filter_item)
 
         localStorage.setItem("productCart_set", JSON.stringify(filter_item))
 
-        // draw_cart_ui(filter_item)
+        draw_cart_ui(filter_item)
 
     }
 }
