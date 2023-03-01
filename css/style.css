@@ -269,3 +269,14 @@ header {
     width: 20px;
     margin-left: auto;
 }
+
+/* ================== Details (02)================== */
+
+.item_Details img {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #333;
+    padding: 2px;
+    height: 400px;
+    object-fit: cover;
+}
