@@ -13,33 +13,91 @@ body {
     margin: auto;
 }
 
-/* ========================= ( header ) ============================== */
+/*
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    ================== header (01) ================== */
+
+/* 001 */
 header {
     background-color: #333;
     padding: 10px 0;
 }
 
+/* 003 */
 .header_content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* 004 */
 .header_content .brand {
     font-size: 32px;
     text-decoration: none;
     color: #fff;
 }
 
+/* 005 */
 nav ul {
     display: flex;
     list-style: none;
 }
 
+/* 005 */
 nav ul#user_ul_info {
     display: none;
+    align-items: center;
 }
 
+/* 006 */
+nav ul#user_ul_info li {
+    position: relative;
+    margin: 0 7px;
+}
+
+/* 007 */
+nav ul#user_ul_info li i {
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* 007 */
+nav ul#user_ul_info li .badge {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: crimson;
+    color: #fff;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: -9px;
+    right: -11px;
+    font-size: 10px;
+}
+
+/* 007 */
 nav ul li a {
     display: block;
     color: #fff;
@@ -48,7 +106,29 @@ nav ul li a {
     margin: 0 5px;
 }
 
-/* ========================= ( form ) ============================== */
+/*
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    ================== form (02) ================== */
+
 .section_form {
     position: absolute;
     top: 50%;
@@ -110,7 +190,7 @@ nav ul li a {
     =
     =
     =
-    ================== (02) ================== */
+    ================== home (02) ================== */
 
 .product_s {
     width: 60%;
