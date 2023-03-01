@@ -6,10 +6,10 @@ console.log("cart_product")
 let products_Dom_2 = document.querySelector(".product_s")
 
 
-if (product_in_cart) {
-    let item_s = JSON.parse(product_in_cart);
-    draw_cart_ui(item_s)
-}
+// if (product_in_cart) {
+//     let item_s = JSON.parse(product_in_cart);
+//     draw_cart_ui(item_s)
+// }
 
 
 
