@@ -103,3 +103,5 @@ function save_item_data(id_item) {
 
     window.location = "Details_Cart.html"
 }
+
+function search() { }
