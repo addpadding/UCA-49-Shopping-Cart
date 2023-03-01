@@ -3,6 +3,7 @@ console.log("cart_product")
 
 
 let products_Dom_2 = document.querySelector(".product_s")
+let no_products_Dom = document.querySelector(".no_products")
 
 
 function draw_cart_ui(all_product = []) {
