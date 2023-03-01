@@ -236,6 +236,13 @@ header {
     margin-right: 10px;
 }
 
+.product_item_desc a {
+    display: block;
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+}
+
 .product_item_actions {
     flex: 1;
     text-align: right;

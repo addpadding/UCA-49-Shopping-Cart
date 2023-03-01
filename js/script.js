@@ -22,7 +22,7 @@ function draw_product_ui() {
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
 
         <div class="product_item_desc">
-            <h2>${item.title_obj}</h2>
+            <a onclick="save_item_data(${item.id_obj})">${item.title_obj}</a>
             <p>
                 Lorem ipsum dolor sit amet consectetur.
             </p>
@@ -96,4 +96,4 @@ function open_cart_menu() {
 
 }
 
-
+function save_item_data() { }
