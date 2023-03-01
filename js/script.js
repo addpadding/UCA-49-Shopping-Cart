@@ -97,22 +97,25 @@ function draw_product_ui() {
 }
 draw_product_ui()
 
+
+let add_item = []
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
-        console.log("add to cart");
+
+        let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
+        carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
+
+        let cart_length_P = document.querySelectorAll(".carts_products div p")
+        console.log(cart_length_P)
+
+        badge_Dom.style.display = "block"
+        badge_Dom.innerHTML = cart_length_P.length
+
     } else {
         window.location = "login.html"
     }
 
-    let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
-    carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
-
-    let cart_length_P = document.querySelectorAll(".carts_products div p")
-    console.log(cart_length_P)
-
-    badge_Dom.style.display = "block"
-    badge_Dom.innerHTML = cart_length_P.length
 }
 
 function open_cart_menu() {
