@@ -16,8 +16,18 @@ let product_Data_B = JSON.parse(localStorage.getItem("product_obj_set"))
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu)
 
+
+
+
+
+
+
+
+
+
+
 // Display products
-function draw_product_ui() {
+function draw_product_ui(product_Data_B = []) {
     let products_ui = product_Data_B.map((item) => {
         return `
     <div class="product_item">
@@ -42,7 +52,19 @@ function draw_product_ui() {
 
     products_Dom.innerHTML = products_ui;
 }
-draw_product_ui()
+// draw_product_ui()
+draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,13 +128,10 @@ function save_item_data(id_item) {
 
 // search function
 let input = document.querySelector("#search")
-console.log(input)
 
 input.addEventListener("keyup", function (e) {
 
     if (e.keyCode === 13) {
-        console.log("enter");
-
         search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")))
     }
 })
@@ -124,7 +143,10 @@ function search(title_item, myArray) {
     //     }
     // }
 
-    let arr = myArray.find((item) => item.title_obj === title_item)
-    console.log(arr)
+    let arr = myArray.filter((item) => item.title_obj === title_item)
+    draw_product_ui(arr)
+
 }
+
+
 // search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
