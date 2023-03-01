@@ -2,31 +2,6 @@
 console.log("Home")
 
 
-let user_info = document.querySelector("#user_ul_info")
-let user_hamza = document.querySelector("#user_hamza")
-let link_s = document.querySelector("#link_s")
-let logout_Btn = document.querySelector("#logout")
-
-
-
-let username_check = localStorage.getItem("username_set")
-
-if (username_check) {
-    link_s.remove()
-    user_info.style.display = "flex"
-
-    user_hamza.innerHTML = username_check
-}
-
-logout_Btn.addEventListener("click", function () {
-    localStorage.clear();
-
-    setTimeout(() => {
-        window.location = "register.html"
-    }, 1500);
-
-})
-
 // define product
 let products_Dom = document.querySelector(".product_s")
 
@@ -101,7 +76,7 @@ function draw_product_ui() {
 draw_product_ui()
 
 
-let add_item = []
+let add_item = localStorage.getItem("productCart_set")
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
