@@ -154,3 +154,5 @@ function search(title_item, myArray) {
 
 
 // search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
+
+// fff
