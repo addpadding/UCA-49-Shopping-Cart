@@ -11,7 +11,7 @@ let carts_products_div_Dom = document.querySelector(".carts_products div")
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge")
 
-let product_obj = localStorage.setItem("product_obj_set", JSON.stringify(product_obj))
+let product_obj = JSON.parse(localStorage.getItem("product_obj_set"))
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu)
