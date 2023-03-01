@@ -106,6 +106,16 @@ function save_item_data(id_item) {
 
 // search function
 let input = document.querySelector("#search")
+console.log(input)
+
+input.addEventListener("keyup", function (e) {
+
+    if (e.keyCode === 13) {
+        console.log("enter");
+
+        search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")))
+    }
+})
 
 function search(title_item, myArray) {
     // for (var i = 0; i < myArray.length; i++) {
@@ -117,4 +127,4 @@ function search(title_item, myArray) {
     let arr = myArray.find((item) => item.title_obj === title_item)
     console.log(arr)
 }
-search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
+// search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
