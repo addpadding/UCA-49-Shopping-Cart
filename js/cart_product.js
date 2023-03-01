@@ -1,4 +1,10 @@
+// Home
+console.log("cart_product")
+
+
 let product_in_cart = localStorage.getItem("productCart_set")
+let products_Dom_2 = document.querySelector(".product_s")
+
 
 if (product_in_cart) {
     let item_s = JSON.parse(product_in_cart);
@@ -7,8 +13,8 @@ if (product_in_cart) {
 
 
 
-function draw_cart_ui() {
-    let products_ui = product_obj.map((item) => {
+function draw_cart_ui(product_obj_item) {
+    let products_ui = product_obj_item.map((item) => {
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
@@ -22,13 +28,12 @@ function draw_cart_ui() {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" onclick="addToCart(${item.id_obj})" >Add to Cart</button>
-            <i class="favorite far fa-heart"></i>
+            <button class="add_to_cart" onclick="remove_from_Cart(${item.id_obj})" >Remove from Cart</button>
         </div>
     </div>
 
         `
     });
 
-    products_Dom.innerHTML = products_ui;
+    products_Dom_2.innerHTML = products_ui;
 }
