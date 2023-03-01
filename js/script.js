@@ -14,40 +14,10 @@ let badge_Dom = document.querySelector(".badge")
 //- JSON.parse() => string to obj
 //- JSON.stringify() = > obj to string
 
-let product_obj = [
-
-    {
-        id_obj: 1,
-        title_obj: "headphone item",
-        size_obj: "large",
-        imageURL_obj: "images/01.jpg",
-    },
-
-    {
-        id_obj: 2,
-        title_obj: "lap item",
-        size_obj: "small",
-        imageURL_obj: "images/02.jpg",
-    },
-
-    {
-        id_obj: 3,
-        title_obj: "watch item",
-        size_obj: "medium",
-        imageURL_obj: "images/03.jpg",
-    },
-
-    {
-        id_obj: 4,
-        title_obj: "glasses item",
-        size_obj: "large",
-        imageURL_obj: "images/04.jpeg",
-    }
-
-];
-
+// open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu)
 
+// Display products
 function draw_product_ui() {
     let products_ui = product_obj.map((item) => {
         return `
@@ -75,20 +45,24 @@ function draw_product_ui() {
 }
 draw_product_ui()
 
+// check if items in localStoreage
+function Cart_Menu_Data() {
+    let add_item = JSON.parse(localStorage.getItem("productCart_set"))
+        ? JSON.parse(localStorage.getItem("productCart_set"))
+        : [];
 
-let add_item = JSON.parse(localStorage.getItem("productCart_set"))
-    ? JSON.parse(localStorage.getItem("productCart_set"))
-    : [];
+    if (add_item) {
+        add_item.map(item => {
+            carts_products_div_Dom.innerHTML += `<p>${item.title_obj}</p>`
+        });
 
-if (add_item) {
-    add_item.map(item => {
-        carts_products_div_Dom.innerHTML += `<p>${item.title_obj}</p>`
-    });
-
-    badge_Dom.style.display = "block"
-    badge_Dom.innerHTML += add_item.length;
+        badge_Dom.style.display = "block"
+        badge_Dom.innerHTML += add_item.length;
+    }
 }
+Cart_Menu_Data()
 
+// add to cart
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
@@ -111,6 +85,7 @@ function addToCart(id_item) {
 
 }
 
+// open cart menu
 function open_cart_menu() {
 
     if (carts_products_div_Dom.innerHTML != "") {
