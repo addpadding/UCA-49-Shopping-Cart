@@ -104,4 +104,17 @@ function save_item_data(id_item) {
     window.location = "Details_Cart.html"
 }
 
-function search() { }
+// search function
+let input = document.querySelector("#search")
+
+function search(title_item, myArray) {
+    // for (var i = 0; i < myArray.length; i++) {
+    //     if (myArray[i].title_obj === title_item) {
+    //         console.log(myArray[i])
+    //     }
+    // }
+
+    let arr = myArray.find((item) => item.title_obj === title_item)
+    console.log(arr)
+}
+search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
