@@ -1,0 +1,1 @@
+let product_in_cart = localStorage.getItem("productCart_set")

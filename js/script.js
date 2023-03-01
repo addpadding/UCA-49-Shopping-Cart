@@ -36,6 +36,9 @@ let carts_products_div_Dom = document.querySelector(".carts_products div")
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge")
 
+//- JSON.parse() => string to obj
+//- JSON.stringify() = > obj to string
+
 let product_obj = [
 
     {
@@ -105,6 +108,9 @@ function addToCart(id_item) {
 
         let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
         carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
+
+        add_item = [...add_item, choosen_item]
+        localStorage.setItem("productCart_set", JSON.stringify(add_item))
 
         let cart_length_P = document.querySelectorAll(".carts_products div p")
         console.log(cart_length_P)
