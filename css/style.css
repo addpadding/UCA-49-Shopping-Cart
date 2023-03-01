@@ -57,32 +57,32 @@ header {
 }
 
 /* 005 */
-nav ul {
+.header_content nav ul {
     display: flex;
     list-style: none;
 }
 
 /* 005 */
-nav ul#user_ul_info {
+.header_content nav ul#user_ul_info {
     display: none;
     align-items: center;
 }
 
 /* 006 */
-nav ul#user_ul_info li {
+.header_content nav ul#user_ul_info li {
     position: relative;
     margin: 0 7px;
 }
 
 /* 007 */
-nav ul#user_ul_info li i {
+.header_content nav ul#user_ul_info li i {
     color: #fff;
     cursor: pointer;
     font-size: 20px;
 }
 
 /* 007 */
-nav ul#user_ul_info li .badge {
+.header_content nav ul#user_ul_info li .badge {
     width: 20px;
     height: 20px;
     line-height: 20px;
@@ -98,7 +98,7 @@ nav ul#user_ul_info li .badge {
 }
 
 /* 007 */
-nav ul#user_ul_info li .carts_products {
+.header_content nav ul#user_ul_info li .carts_products {
     position: absolute;
     top: 46px;
     width: 200px;
@@ -111,7 +111,7 @@ nav ul#user_ul_info li .carts_products {
 }
 
 /* 002 */
-nav ul#user_ul_info li .carts_products a {
+.header_content nav ul#user_ul_info li .carts_products a {
     display: block;
     background-color: darkgreen;
     color: #fff;
@@ -122,7 +122,7 @@ nav ul#user_ul_info li .carts_products a {
 }
 
 /* 007 */
-nav ul li a {
+.header_content nav ul li a {
     display: block;
     color: #fff;
     min-width: 50px;

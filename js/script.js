@@ -29,6 +29,7 @@ logout_Btn.addEventListener("click", function () {
 
 // define product
 let products_Dom = document.querySelector(".product_s")
+let carts_products_Dom = document.querySelector(".carts_products div")
 
 let product_obj = [
 
@@ -90,11 +91,8 @@ function draw_product_ui() {
 draw_product_ui()
 
 function addToCart(id_item) {
-    console.log(id_item)
-
     let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
-
-    console.log(choosen_item);
+    carts_products_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
 }
 
 function check_loged_user() {
