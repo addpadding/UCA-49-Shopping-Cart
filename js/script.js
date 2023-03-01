@@ -134,6 +134,10 @@ input.addEventListener("keyup", function (e) {
     if (e.keyCode === 13) {
         search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")))
     }
+
+    if (e.target.value.trim() === "") {
+        draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")))
+    }
 })
 
 function search(title_item, myArray) {
