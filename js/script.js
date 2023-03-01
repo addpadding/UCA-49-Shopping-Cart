@@ -76,7 +76,19 @@ function draw_product_ui() {
 draw_product_ui()
 
 
-let add_item = localStorage.getItem("productCart_set")
+let add_item = JSON.parse(localStorage.getItem("productCart_set"))
+    ? JSON.parse(localStorage.getItem("productCart_set"))
+    : [];
+
+if (add_item) {
+    add_item.map(item => {
+        carts_products_div_Dom.innerHTML += `<p>${item.title_obj}</p>`
+    });
+
+    badge_Dom.style.display = "block"
+    badge_Dom.innerHTML += add_item.length;
+}
+
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
