@@ -77,7 +77,7 @@ function draw_product_ui() {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" id="addcart" >Add to Cart</button>
+            <button class="add_to_cart" onclick="addToCart(${item.id_obj})" >Add to Cart</button>
             <i class="favorite far fa-heart"></i>
         </div>
     </div>
@@ -89,10 +89,19 @@ function draw_product_ui() {
 }
 draw_product_ui()
 
+function addToCart(id_item) {
+    console.log(id_item)
+
+    let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
+
+    console.log(choosen_item);
+}
+
 function check_loged_user() {
 
     if (localStorage.getItem("username_set")) {
-        window.location = "cart_product.html"
+        // window.location = "cart_product.html"
+        console.log("add to cart");
     } else {
         window.location = "login.html"
     }
