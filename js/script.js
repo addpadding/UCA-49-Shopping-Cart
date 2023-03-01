@@ -98,6 +98,13 @@ function draw_product_ui() {
 draw_product_ui()
 
 function addToCart(id_item) {
+
+    if (localStorage.getItem("username_set")) {
+        console.log("add to cart");
+    } else {
+        window.location = "login.html"
+    }
+
     let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
     carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
 
@@ -106,17 +113,6 @@ function addToCart(id_item) {
 
     badge_Dom.style.display = "block"
     badge_Dom.innerHTML = cart_length_P.length
-}
-
-function check_loged_user() {
-
-    if (localStorage.getItem("username_set")) {
-        // window.location = "cart_product.html"
-        console.log("add to cart");
-    } else {
-        window.location = "login.html"
-    }
-
 }
 
 function open_cart_menu() {
