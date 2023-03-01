@@ -77,7 +77,7 @@ function draw_product_ui() {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart">Add to Cart</button>
+            <button class="add_to_cart" id="addcart" >Add to Cart</button>
             <i class="favorite far fa-heart"></i>
         </div>
     </div>
@@ -88,3 +88,13 @@ function draw_product_ui() {
     products_Dom.innerHTML = products_ui;
 }
 draw_product_ui()
+
+function check_loged_user() {
+
+    if (localStorage.getItem("username_set")) {
+        window.location = "cart_product.html"
+    } else {
+        window.location = "login.html"
+    }
+
+}
