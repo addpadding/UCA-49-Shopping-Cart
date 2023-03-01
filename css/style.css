@@ -88,3 +88,70 @@ nav ul li a {
 .section_form form input[type="submit"]:hover {
     opacity: 0.8;
 }
+
+/*
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    ================== (02) ================== */
+
+.product_s {
+    width: 60%;
+    margin: 10px 0;
+}
+
+.product_item {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.product_item_img {
+    width: 25%;
+    margin-right: 10px;
+}
+
+.product_item_actions {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product_item_actions .add_to_cart {
+    display: block;
+    margin-left: auto;
+    background-color: darkgreen;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "oswald", sans-serif;
+}
+
+.product_item_actions .favorite {
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    margin-left: auto;
+}
