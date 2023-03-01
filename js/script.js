@@ -45,10 +45,7 @@ draw_product_ui()
 
 
 
-
-
 // check if items in localStoreage
-
 let add_item = JSON.parse(localStorage.getItem("productCart_set"))
     ? JSON.parse(localStorage.getItem("productCart_set"))
     : [];
@@ -63,9 +60,6 @@ if (add_item) {
 }
 
 
-
-
-
 // add to cart
 function addToCart(id_item) {
 
@@ -78,7 +72,6 @@ function addToCart(id_item) {
         localStorage.setItem("productCart_set", JSON.stringify(add_item))
 
         let cart_length_P = document.querySelectorAll(".carts_products div p")
-        console.log(cart_length_P)
 
         badge_Dom.style.display = "block"
         badge_Dom.innerHTML = cart_length_P.length

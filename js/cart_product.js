@@ -40,15 +40,16 @@ function draw_cart_ui(product_obj_item) {
 
 
 function remove_item_from_Cart(id_item) {
+    console.log(id_item)
+
     if (product_in_cart) {
         let item_s = JSON.parse(product_in_cart);
 
-        item_s.filter((item) => item.id_obj !== id_item)
 
-        // item_s.filter(function (item) {
-        //     item.id_obj !== id_item
-        // })
+        let filter_item = item_s.filter((item) => item.id_obj !== id_item)
 
-        localStorage.setItem("productCart_set", JSON.stringify(item_s))
+        draw_cart_ui(filter_item)
+
+        localStorage.setItem("productCart_set", JSON.stringify(filter_item))
     }
 }
