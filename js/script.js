@@ -11,14 +11,14 @@ let carts_products_div_Dom = document.querySelector(".carts_products div")
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge")
 
-let product_obj = JSON.parse(localStorage.getItem("product_obj_set"))
+let product_Data_B = JSON.parse(localStorage.getItem("product_obj_set"))
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu)
 
 // Display products
 function draw_product_ui() {
-    let products_ui = product_obj.map((item) => {
+    let products_ui = product_Data_B.map((item) => {
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
@@ -67,7 +67,7 @@ function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
-        let choosen_item = product_obj.find((find_item) => find_item.id_obj === id_item);
+        let choosen_item = product_Data_B.find((find_item) => find_item.id_obj === id_item);
         carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
 
         add_item = [...add_item, choosen_item]
@@ -99,7 +99,7 @@ function open_cart_menu() {
 }
 
 function save_item_data(id_item) {
-    localStorage.setItem("productId_set", id_item)
+    localStorage.setItem("product_Id_set", id_item)
 
     window.location = "Details_Cart.html"
 }
