@@ -28,9 +28,9 @@ logout_Btn.addEventListener("click", function () {
 })
 
 // define product
+let products_Dom = document.querySelector(".product_s")
 
-
-let product_s = [
+let product_obj = [
 
     {
         id_obj: 1,
@@ -63,7 +63,7 @@ let product_s = [
 ]
 
 function draw_product_ui() {
-    let products_ui = product_s.map((item) => {
+    let products_ui = product_obj.map((item) => {
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
@@ -84,4 +84,7 @@ function draw_product_ui() {
 
         `
     });
+
+    products_Dom.innerHTML = products_ui;
 }
+draw_product_ui()
