@@ -141,18 +141,6 @@ input.addEventListener("keyup", function (e) {
 })
 
 function search(title_item, myArray) {
-    // for (var i = 0; i < myArray.length; i++) {
-    //     if (myArray[i].title_obj === title_item) {
-    //         console.log(myArray[i])
-    //     }
-    // }
-
     let arr = myArray.filter((item) => item.title_obj === title_item)
     draw_product_ui(arr)
-
 }
-
-
-// search("headphone item", JSON.parse(localStorage.getItem("product_obj_set")))
-
-// fff
