@@ -11,9 +11,6 @@ let carts_products_div_Dom = document.querySelector(".carts_products div")
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge")
 
-//- JSON.parse() => string to obj
-//- JSON.stringify() = > obj to string
-
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu)
 
@@ -45,22 +42,29 @@ function draw_product_ui() {
 }
 draw_product_ui()
 
+
+
+
+
+
 // check if items in localStoreage
-function Cart_Menu_Data() {
-    let add_item = JSON.parse(localStorage.getItem("productCart_set"))
-        ? JSON.parse(localStorage.getItem("productCart_set"))
-        : [];
 
-    if (add_item) {
-        add_item.map(item => {
-            carts_products_div_Dom.innerHTML += `<p>${item.title_obj}</p>`
-        });
+let add_item = JSON.parse(localStorage.getItem("productCart_set"))
+    ? JSON.parse(localStorage.getItem("productCart_set"))
+    : [];
 
-        badge_Dom.style.display = "block"
-        badge_Dom.innerHTML += add_item.length;
-    }
+if (add_item) {
+    add_item.map(item => {
+        carts_products_div_Dom.innerHTML += `<p>${item.title_obj}</p>`
+    });
+
+    badge_Dom.style.display = "block"
+    badge_Dom.innerHTML += add_item.length;
 }
-Cart_Menu_Data()
+
+
+
+
 
 // add to cart
 function addToCart(id_item) {

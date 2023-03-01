@@ -28,7 +28,7 @@ function draw_cart_ui(product_obj_item) {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" onclick="remove_from_Cart(${item.id_obj})" >Remove from Cart</button>
+            <button class="add_to_cart" onclick="remove_item_from_Cart(${item.id_obj})" >Remove from Cart</button>
         </div>
     </div>
 
@@ -36,4 +36,19 @@ function draw_cart_ui(product_obj_item) {
     });
 
     products_Dom_2.innerHTML = products_ui;
+}
+
+
+function remove_item_from_Cart(id_item) {
+    if (product_in_cart) {
+        let item_s = JSON.parse(product_in_cart);
+
+        item_s.filter((item) => item.id_obj !== id_item)
+
+        // item_s.filter(function (item) {
+        //     item.id_obj !== id_item
+        // })
+
+        localStorage.setItem("productCart_set", JSON.stringify(item_s))
+    }
 }
