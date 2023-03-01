@@ -98,6 +98,17 @@ nav ul#user_ul_info li .badge {
 }
 
 /* 007 */
+nav ul#user_ul_info li .carts_products {
+    position: absolute;
+    top: 46px;
+    width: 200px;
+    transform: translate(-42%, 0);
+    background-color: #eaeaea;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+/* 007 */
 nav ul li a {
     display: block;
     color: #fff;
