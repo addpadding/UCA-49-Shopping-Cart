@@ -131,5 +131,3 @@ function open_cart_menu() {
     }
 
 }
-
-// fff = part 2
