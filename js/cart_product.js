@@ -8,6 +8,10 @@ let no_products_Dom = document.querySelector(".no_products")
 
 function draw_cart_ui(all_product = []) {
 
+    if (JSON.parse(localStorage.getItem("productCart_set")).length === 0) {
+        no_products_Dom.innerHTML = "no item"
+    }
+
     let product_obj_item =
         JSON.parse(localStorage.getItem("productCart_set")) || all_product
 
