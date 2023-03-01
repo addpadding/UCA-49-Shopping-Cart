@@ -13,7 +13,11 @@ let products_Dom_2 = document.querySelector(".product_s")
 
 
 
-function draw_cart_ui(product_obj_item) {
+function draw_cart_ui(all_product = []) {
+
+    let product_obj_item =
+        JSON.parse(localStorage.getItem("productCart_set")) || all_product
+
     let products_ui = product_obj_item.map((item) => {
         return `
     <div class="product_item">
@@ -37,6 +41,8 @@ function draw_cart_ui(product_obj_item) {
 
     products_Dom_2.innerHTML = products_ui;
 }
+
+draw_cart_ui()
 
 
 function remove_item_from_Cart(id_item) {
