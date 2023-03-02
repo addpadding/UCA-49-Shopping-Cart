@@ -131,9 +131,7 @@ let input = document.querySelector("#search")
 
 input.addEventListener("keyup", function (e) {
 
-    if (e.keyCode === 13) {
-        search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")))
-    }
+    search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")))
 
     if (e.target.value.trim() === "") {
         draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")))
@@ -141,6 +139,6 @@ input.addEventListener("keyup", function (e) {
 })
 
 function search(title_item, myArray) {
-    let arr = myArray.filter((item) => item.title_obj === title_item)
+    let arr = myArray.filter((item) => item.title_obj.indexOf(title_item) !== -1)
     draw_product_ui(arr)
 }
