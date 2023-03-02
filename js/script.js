@@ -95,7 +95,9 @@ function addToCart(id_item) {
     }
 }
 
-function Get_Unique_Array() { }
+function Get_Unique_Array(arr_item, filter_Type_item) {
+    let unique
+}
 
 // open cart menu
 function open_cart_menu() {
