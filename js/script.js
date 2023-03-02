@@ -18,6 +18,9 @@ shopping_cart_icon.addEventListener("click", open_cart_menu);
 // Display products
 function draw_product_ui(product_Data_B = []) {
     let products_ui = product_Data_B.map((item_map) => {
+
+        console.log("eee", item_map)
+
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
@@ -32,7 +35,7 @@ function draw_product_ui(product_Data_B = []) {
 
         <div class="product_item_actions">
             <button class="add_to_cart" onclick="addToCart(${item_map.id_obj})" >Add to Cart</button>
-            <i class="favorite far fa-heart" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
+            <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? "red" : ""}" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
         </div>
     </div>
 
@@ -147,18 +150,32 @@ let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
 
 // add to Favorite
 function Add_To_Favorite(id_item) {
+
     if (localStorage.getItem("username_set")) {
 
         let choosen_item = product_Data_B.find(
             (find_item) => find_item.id_obj === id_item
         );
 
+        choosen_item.liked = true;
+
         Favorite_item_s = [...Favorite_item_s, choosen_item];
 
-        let unique_Products = Get_Unique_Array(add_item, "id_obj");
-        localStorage.setItem("productCart_set", JSON.stringify(unique_Products));
+        let unique_Products = Get_Unique_Array(Favorite_item_s, "id_obj");
 
-        localStorage.setItem("product_Favorite_set", JSON.stringify(Favorite_item_s));
+        localStorage.setItem("product_Favorite_set", JSON.stringify(unique_Products));
+
+        product_Data_B.map((item_map) => {
+
+            if (item_map.id_obj === choosen_item.id_obj) {
+                item_map.liked = true
+            }
+
+        })
+
+        localStorage.setItem("product_obj_set", JSON.stringify(product_Data_B))
+
+        draw_product_ui(product_Data_B)
 
     } else {
         window.location = "login.html";
