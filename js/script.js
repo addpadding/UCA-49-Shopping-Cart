@@ -140,7 +140,11 @@ function search(title_item, myArray) {
     draw_product_ui(arr);
 }
 
-let Favorite_item_s = []
+// add to Favorite + check if items in localStoreage
+let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
+    ? JSON.parse(localStorage.getItem("product_Favorite_set"))
+    : [];
+
 // add to Favorite
 function Add_To_Favorite(id_item) {
     if (localStorage.getItem("username_set")) {
@@ -149,7 +153,12 @@ function Add_To_Favorite(id_item) {
             (find_item) => find_item.id_obj === id_item
         );
 
-        localStorage.setItem("product_Favorite_set", JSON.stringify(choosen_item));
+        Favorite_item_s = [...Favorite_item_s, choosen_item];
+
+        let unique_Products = Get_Unique_Array(add_item, "id_obj");
+        localStorage.setItem("productCart_set", JSON.stringify(unique_Products));
+
+        localStorage.setItem("product_Favorite_set", JSON.stringify(Favorite_item_s));
 
     } else {
         window.location = "login.html";
