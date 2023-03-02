@@ -25,7 +25,8 @@ function draw_cart_ui(all_product = []) {
             <p>
                 Lorem ipsum dolor sit amet consectetur.
             </p>
-            <span> size : ${item.size_obj} </span>
+            <span> size : ${item.size_obj} </span> <br>
+            <span> Quntatit : ${item.qty_obj} </span>
         </div>
 
         <div class="product_item_actions">
