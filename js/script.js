@@ -84,6 +84,9 @@ function addToCart(id_item) {
         });
 
         add_item = [...add_item, choosen_item];
+
+        let unique_Products = Get_Unique_Array(add_item, "id_obj");
+
         localStorage.setItem("productCart_set", JSON.stringify(add_item));
 
         let cart_length_P = document.querySelectorAll(".carts_products div p");
@@ -96,7 +99,14 @@ function addToCart(id_item) {
 }
 
 function Get_Unique_Array(arr_item, filter_Type_item) {
-    let unique
+    let unique = arr_item
+        .map((item_map_1) => item_map_1[filter_Type_item])
+        .map((item_map_2, i_index, final_array) => final_array.indexOf(item_map_2) === i_index && i_index)
+        .filter((item_filter) => arr_item[item_filter])
+        .map((item_map_3) => arr_item[item_map_3]);
+
+    // console.log(unique)
+    return unique;
 }
 
 // open cart menu
