@@ -94,15 +94,20 @@ function addToCart(id_item) {
 
         let choosen_item = product_Data_B.find((find_item) => find_item.id_obj === id_item);
 
-        let item_ss = all_item.find(i => i.id_obj === choosen_item.id_obj)
+        let item_m = all_item.find(i => i.id_obj === choosen_item.id_obj)
+        // console.log("item_m", item_ss)
 
-        if (item_ss) {
-
+        if (item_m) {
+            choosen_item.qty_obj += 1;
         } else {
             all_item.push(choosen_item)
+            console.log("a", all_item)
         }
 
-        // carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
+        all_item.forEach(item_forEach => {
+            carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`
+        })
+
 
         add_item = [...add_item, choosen_item]
         localStorage.setItem("productCart_set", JSON.stringify(add_item))
