@@ -85,12 +85,16 @@ if (add_item) {
 
 
 // add to cart
+
+let all_item = []
+
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
         let choosen_item = product_Data_B.find((find_item) => find_item.id_obj === id_item);
-        carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
+
+        // carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
 
         add_item = [...add_item, choosen_item]
         localStorage.setItem("productCart_set", JSON.stringify(add_item))
