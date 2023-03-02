@@ -94,6 +94,8 @@ function addToCart(id_item) {
 
         let choosen_item = product_Data_B.find((find_item) => find_item.id_obj === id_item);
 
+        let item_ss = all_item
+
         // carts_products_div_Dom.innerHTML += `<p>${choosen_item.title_obj}</p>`
 
         add_item = [...add_item, choosen_item]
