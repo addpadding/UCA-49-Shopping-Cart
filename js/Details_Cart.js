@@ -10,5 +10,6 @@ let product_Details = product_Data_B2.find((item) => item.id_obj == products_id)
 Details_item_Dom.innerHTML = `
 <img src="${product_Details.imageURL_obj}" alt="">
 <h2> ${product_Details.title_obj} </h2>
-<span> size : ${product_Details.size_obj} </span>
+<span> size : ${product_Details.size_obj} </span> <br>
+<span> Quntatit : ${product_Details.qty_obj} </span>
 `
