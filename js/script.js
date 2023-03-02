@@ -17,22 +17,22 @@ shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
 function draw_product_ui(product_Data_B = []) {
-    let products_ui = product_Data_B.map((item) => {
+    let products_ui = product_Data_B.map((item_map) => {
         return `
     <div class="product_item">
-        <img class="product_item_img" src="${item.imageURL_obj}" alt="">
+        <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
 
         <div class="product_item_desc">
-            <a onclick="save_item_data(${item.id_obj})">${item.title_obj}</a>
+            <a onclick="save_item_data(${item_map.id_obj})">${item_map.title_obj}</a>
             <p>
                 Lorem ipsum dolor sit amet consectetur.
             </p>
-            <span> size : ${item.size_obj} </span>
+            <span> size : ${item_map.size_obj} </span>
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" onclick="addToCart(${item.id_obj})" >Add to Cart</button>
-            <i class="favorite far fa-heart"></i>
+            <button class="add_to_cart" onclick="addToCart(${item_map.id_obj})" >Add to Cart</button>
+            <i class="favorite far fa-heart" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
         </div>
     </div>
 
@@ -140,40 +140,17 @@ function search(title_item, myArray) {
     draw_product_ui(arr);
 }
 
-
+let Favorite_item_s = []
 // add to Favorite
-// let all_item = [];
-// add to cart
 function Add_To_Favorite(id_item) {
     if (localStorage.getItem("username_set")) {
+
         let choosen_item = product_Data_B.find(
             (find_item) => find_item.id_obj === id_item
         );
 
-        let item_m = all_item.find((i) => i.id_obj === choosen_item.id_obj);
+        localStorage.setItem("product_Favorite_set", JSON.stringify(choosen_item));
 
-        if (item_m) {
-            choosen_item.qty_obj += 1;
-        } else {
-            all_item.push(choosen_item);
-        }
-
-        carts_products_div_Dom.innerHTML = "";
-
-        all_item.forEach((item_forEach) => {
-            carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`;
-        });
-
-        add_item = [...add_item, choosen_item];
-
-        let unique_Products = Get_Unique_Array(add_item, "id_obj");
-
-        localStorage.setItem("productCart_set", JSON.stringify(unique_Products));
-
-        let cart_length_P = document.querySelectorAll(".carts_products div p");
-
-        badge_Dom.style.display = "block";
-        badge_Dom.innerHTML = cart_length_P.length;
     } else {
         window.location = "login.html";
     }
