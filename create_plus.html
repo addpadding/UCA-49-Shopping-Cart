@@ -12,6 +12,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/create_plus.css" />
 </head>
 
 <!-- create_plus -->
@@ -87,7 +88,7 @@
     <section class="create_product_page">
         <div class="container">
 
-            <form>
+            <form id="create_product_form">
                 <input id="create_product_name" type="text" placeholder="Name ... ">
                 <input id="create_product_desc" type="text" placeholder="Description ... ">
 
@@ -96,6 +97,8 @@
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                 </select>
+
+                <input id="create_product_btn" type="submit" value="Create">
             </form>
 
         </div>
