@@ -23,6 +23,8 @@ function get_product_size_value(e) {
 function Craete_Product_Fun(e) {
     e.preventDefault();
 
+    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set"))
     let name_value = create_Name.value;
     let desc_value = create_Desc.value;
+
 }
