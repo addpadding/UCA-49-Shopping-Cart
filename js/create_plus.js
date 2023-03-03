@@ -31,17 +31,18 @@ function Craete_Product_Fun(e) {
     if (name_value && desc_value) {
 
         let Create_Obj = {
-            id_Create: all_product_storage ? all_product_storage.length + 1 : 1,
 
-            qty_Create: 1,
+            id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
 
-            imageURL_Create: products_image,
+            title_obj: name_value,
 
-            size_Create: products_size_value,
+            desc_obj: desc_value,
 
-            title_Create: name_value,
+            size_obj: products_size_value,
 
-            desc_Create: desc_value,
+            imageURL_obj: products_image,
+
+            qty_obj: 1,
         };
 
         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
@@ -74,7 +75,6 @@ function upload_image() {
     }
 
     get_img_Base_64(file_e);
-    // products_image = URL.createObjectURL(file_e)
 }
 
 function get_img_Base_64(file_item) {
@@ -83,7 +83,6 @@ function get_img_Base_64(file_item) {
     reader.readAsDataURL(file_item)
 
     reader.onload = function () {
-        // console.log(reader.result);
         products_image = reader.result
     };
 
