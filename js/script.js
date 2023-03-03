@@ -85,18 +85,31 @@ function addToCart(id_item) {
             (i_some) => i_some.id_obj === product__choosen.id_obj
         );
 
+        // ********************************************
+        // ********************************************
+
         if (is_product_in_cart) {
             add_item = add_item.map((item_map) => {
                 if (item_map.id_obj === product__choosen.id_obj) item_map.qty_obj += 1;
                 return item_map;
-
-                // if (item_map.id_obj === product__choosen.id_obj)
-                //     product__choosen.qty_obj += 1;
-
             });
         } else {
             add_item.push(product__choosen);
         }
+
+        // ********************************************
+
+        // if (is_product_in_cart) {
+        //     add_item = add_item.map((item_map) => {
+        //         if (item_map.id_obj === product__choosen.id_obj) product__choosen.qty_obj += 1;
+        //         return item_map;
+        //     });
+        // } else {
+        //     add_item.push(product__choosen);
+        // }
+
+        // ********************************************
+        // ********************************************
 
         // UI
         carts_products_div_Dom.innerHTML = "";
