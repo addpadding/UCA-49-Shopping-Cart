@@ -60,9 +60,7 @@ if (add_item) {
     badge_Dom.style.display = "block";
     badge_Dom.innerHTML += add_item.length;
 }
-
-// product__choosen
-// let choosen_item
+// let item_m
 // add to cart
 function addToCart(id_item) {
     if (localStorage.getItem("username_set")) {
@@ -70,9 +68,9 @@ function addToCart(id_item) {
             (find_item) => find_item.id_obj === id_item
         );
 
-        let item_m = add_item.find((i) => i.id_obj === product__choosen.id_obj);
+        let is_product_in_cart = add_item.some((i_some) => i_some.id_obj === product__choosen.id_obj);
 
-        if (item_m) {
+        if (is_product_in_cart) {
             product__choosen.qty_obj += 1;
         } else {
             add_item.push(product__choosen);
