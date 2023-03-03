@@ -30,7 +30,7 @@ function draw_favorite_ui(all_product = []) {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" >Remove from Favorite</button>
+            <button class="add_to_cart" onclick="remove_item_from_favorite(${item.id_obj})" >Remove from Cart</button>
         </div>
     </div>
 
@@ -39,28 +39,24 @@ function draw_favorite_ui(all_product = []) {
 
     products_Dom_2.innerHTML = products_ui.join("");
 }
-
-// <button class="add_to_cart" onclick="remove_item_from_Cart(${item.id_obj})" >Remove from Cart</button>
-
-
 draw_favorite_ui()
 
 
-// function remove_item_from_Cart(id_item) {
+function remove_item_from_favorite(id_item) {
 
-//     let product_in_Favorite = localStorage.getItem("product_Favorite_set")
+    let product_in_Favorite = localStorage.getItem("product_Favorite_set")
 
-//     if (product_in_Favorite) {
-//         let item_s = JSON.parse(product_in_Favorite);
+    if (product_in_Favorite) {
+        let item_s = JSON.parse(product_in_Favorite);
 
-//         let filter_item = item_s.filter((item) => item.id_obj !== id_item)
+        let filter_item = item_s.filter((item) => item.id_obj !== id_item)
 
-//         localStorage.setItem("product_Favorite_set", JSON.stringify(filter_item))
+        localStorage.setItem("product_Favorite_set", JSON.stringify(filter_item))
 
-//         draw_favorite_ui(filter_item)
+        draw_favorite_ui(filter_item)
 
-//     }
-// }
+    }
+}
 
 
 
