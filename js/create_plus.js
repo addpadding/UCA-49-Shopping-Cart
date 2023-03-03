@@ -35,6 +35,8 @@ function Craete_Product_Fun(e) {
 
             qty_Create: 1,
 
+            imageURL_Create: products_image,
+
             size_Create: products_size_value,
 
             title_Create: name_value,
@@ -55,12 +57,9 @@ function Craete_Product_Fun(e) {
 
 }
 
-let preview;
-
 // upload_image
 function upload_image() {
     let file_e = this.files[0];
-    console.log(file_e);
 
     let type_s = ["image/jpeg", "image/png"]
 
@@ -74,6 +73,5 @@ function upload_image() {
         return;
     }
 
-    preview = URL.createObjectURL(file_e)
-    console.log("o", preview)
+    products_image = URL.createObjectURL(file_e)
 }
