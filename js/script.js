@@ -11,33 +11,36 @@ let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
 let product_Data_B = product_obj;
+console.log("ppp", product_Data_B)
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
-function draw_product_ui(product_Data_B = []) {
-    let products_ui = product_Data_B.map((item_map) => {
+function draw_product_ui(product_Data_B_item = []) {
+    console.log("in", product_Data_B_item)
+
+    let products_ui = product_Data_B_item.map((item_map) => {
         console.log("eee", item_map);
 
         return `
-    <div class="product_item">
-        <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
+        <div class="product_item">
+            <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
 
-        <div class="product_item_desc">
-            <a onclick="save_item_data(${item_map.id_obj})">${item_map.title_obj
+            <div class="product_item_desc">
+                <a onclick="save_item_data(${item_map.id_obj})">${item_map.title_obj
             }</a>
-            <p>${item_map.desc_obj}</p>
-            <span> size : ${item_map.size_obj} </span>
-        </div>
+                <p>${item_map.desc_obj}</p>
+                <span> size : ${item_map.size_obj} </span>
+            </div>
 
-        <div class="product_item_actions">
-            <button class="add_to_cart" onclick="addToCart(${item_map.id_obj
+            <div class="product_item_actions">
+                <button class="add_to_cart" onclick="addToCart(${item_map.id_obj
             })" >Add to Cart</button>
-            <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? "red" : ""
+                <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? "red" : ""
             }" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
+            </div>
         </div>
-    </div>
 
         `;
     });

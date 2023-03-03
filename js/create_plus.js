@@ -21,12 +21,12 @@ function get_product_size_value(e) {
 function Craete_Product_Fun(e) {
     e.preventDefault();
 
-    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set"));
+    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set")) || product_obj;
     let name_value = create_Name.value;
     let desc_value = create_Desc.value;
 
     let Create_Obj = {
-        id_Create: all_product_storage.length + 1,
+        id_Create: all_product_storage ? all_product_storage.length + 1 : 1,
 
         qty_Create: 1,
 
@@ -37,5 +37,10 @@ function Craete_Product_Fun(e) {
         desc_Create: desc_value,
     };
 
-    let new_product = [...all_product_storage, Create_Obj]
+    let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
+    localStorage.setItem("product_obj_set", JSON.stringify(new_product_Storage));
+
+    create_Name.value = "";
+    create_Desc.value = "";
+    create_Siza_Select.value = "";
 }
