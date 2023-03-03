@@ -61,31 +61,30 @@ if (add_item) {
     badge_Dom.innerHTML += add_item.length;
 }
 
-
-// add to cart
-// let all_item = [];
+// product__choosen
+// let choosen_item
 // add to cart
 function addToCart(id_item) {
     if (localStorage.getItem("username_set")) {
-        let choosen_item = product_Data_B.find(
+        let product__choosen = product_Data_B.find(
             (find_item) => find_item.id_obj === id_item
         );
 
-        let item_m = all_item.find((i) => i.id_obj === choosen_item.id_obj);
+        let item_m = add_item.find((i) => i.id_obj === product__choosen.id_obj);
 
         if (item_m) {
-            choosen_item.qty_obj += 1;
+            product__choosen.qty_obj += 1;
         } else {
-            all_item.push(choosen_item);
+            add_item.push(product__choosen);
         }
 
         carts_products_div_Dom.innerHTML = "";
 
-        all_item.forEach((item_forEach) => {
+        add_item.forEach((item_forEach) => {
             carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`;
         });
 
-        add_item = [...add_item, choosen_item];
+        add_item = [...add_item, product__choosen];
 
         let unique_Products = Get_Unique_Array(add_item, "id_obj");
 
