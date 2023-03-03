@@ -1,19 +1,19 @@
-// Home
-console.log("cart_product")
+// favorite
+console.log("favorite")
 
 
 let products_Dom_2 = document.querySelector(".product_s")
 let no_products_Dom = document.querySelector(".no_products")
 
 
-function draw_cart_ui(all_product = []) {
+function draw_favorite_ui(all_product = []) {
 
-    if (JSON.parse(localStorage.getItem("productCart_set")).length === 0) {
+    if (JSON.parse(localStorage.getItem("product_Favorite_set")).length === 0) {
         no_products_Dom.innerHTML = "no item"
     }
 
     let product_obj_item =
-        JSON.parse(localStorage.getItem("productCart_set")) || all_product
+        JSON.parse(localStorage.getItem("product_Favorite_set")) || all_product
 
     let products_ui = product_obj_item.map((item) => {
         return `
@@ -30,7 +30,7 @@ function draw_cart_ui(all_product = []) {
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" onclick="remove_item_from_Cart(${item.id_obj})" >Remove from Cart</button>
+            <button class="add_to_cart" >Remove from Favorite</button>
         </div>
     </div>
 
@@ -40,21 +40,28 @@ function draw_cart_ui(all_product = []) {
     products_Dom_2.innerHTML = products_ui;
 }
 
-draw_cart_ui()
+// <button class="add_to_cart" onclick="remove_item_from_Cart(${item.id_obj})" >Remove from Cart</button>
 
 
-function remove_item_from_Cart(id_item) {
+draw_favorite_ui()
 
-    let product_in_cart = localStorage.getItem("productCart_set")
 
-    if (product_in_cart) {
-        let item_s = JSON.parse(product_in_cart);
+// function remove_item_from_Cart(id_item) {
 
-        let filter_item = item_s.filter((item) => item.id_obj !== id_item)
+//     let product_in_Favorite = localStorage.getItem("product_Favorite_set")
 
-        localStorage.setItem("productCart_set", JSON.stringify(filter_item))
+//     if (product_in_Favorite) {
+//         let item_s = JSON.parse(product_in_Favorite);
 
-        draw_cart_ui(filter_item)
+//         let filter_item = item_s.filter((item) => item.id_obj !== id_item)
 
-    }
-}
+//         localStorage.setItem("product_Favorite_set", JSON.stringify(filter_item))
+
+//         draw_favorite_ui(filter_item)
+
+//     }
+// }
+
+
+
+
