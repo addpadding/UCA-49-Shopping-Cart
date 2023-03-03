@@ -60,7 +60,7 @@ if (add_item) {
     badge_Dom.style.display = "block";
     badge_Dom.innerHTML += add_item.length;
 }
-// let item_m
+
 // add to cart
 function addToCart(id_item) {
     if (localStorage.getItem("username_set")) {
@@ -71,7 +71,12 @@ function addToCart(id_item) {
         let is_product_in_cart = add_item.some((i_some) => i_some.id_obj === product__choosen.id_obj);
 
         if (is_product_in_cart) {
-            product__choosen.qty_obj += 1;
+            add_item = add_item.map((item_map) => {
+
+                if (item_map.id_obj === product__choosen.id_obj) product__choosen.qty_obj += 1;
+                return item_map
+            })
+
         } else {
             add_item.push(product__choosen);
         }
@@ -82,12 +87,10 @@ function addToCart(id_item) {
             carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`;
         });
 
-        add_item = [...add_item, product__choosen];
+        // save data
+        localStorage.setItem("productCart_set", JSON.stringify(add_item));
 
-        let unique_Products = Get_Unique_Array(add_item, "id_obj");
-
-        localStorage.setItem("productCart_set", JSON.stringify(unique_Products));
-
+        // Add counter of items
         let cart_length_P = document.querySelectorAll(".carts_products div p");
 
         badge_Dom.style.display = "block";
