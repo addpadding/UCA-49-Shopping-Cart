@@ -5,22 +5,22 @@ console.log("Home");
 let products_Dom = document.querySelector(".product_s");
 
 let carts_products_menu = document.querySelector(".carts_products");
-let cartProductDivDom = document.querySelector(".carts_products div");
+let carts_products_div_Dom = document.querySelector(".carts_products div");
 
 let shopping_cart_icon = document.querySelector(".shopping_cart");
-let badgeDom = document.querySelector(".badge");
+let badge_Dom = document.querySelector(".badge");
 
-let products = product_obj;
-// console.log("ppp", products)
+let product_Data_B = product_obj;
+// console.log("ppp", product_Data_B)
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
-function draw_product_ui(products_item = []) {
-    // console.log("in", products_item)
+function draw_product_ui(product_Data_B_item = []) {
+    // console.log("in", product_Data_B_item)
 
-    let products_ui = products_item.map((item_map) => {
+    let products_ui = product_Data_B_item.map((item_map) => {
         // console.log("eee", item_map);
 
         return `
@@ -28,17 +28,17 @@ function draw_product_ui(products_item = []) {
             <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
 
             <div class="product_item_desc">
-                <a onclick="save_item_data(${item_map.id})">${item_map.title
+                <a onclick="save_item_data(${item_map.id_obj})">${item_map.title_obj
             }</a>
                 <p>${item_map.desc_obj}</p>
                 <span> size : ${item_map.size_obj} </span>
             </div>
 
             <div class="product_item_actions">
-                <button class="add_to_cart" onclick="addedToCart(${item_map.id
+                <button class="add_to_cart" onclick="addToCart(${item_map.id_obj
             })" >Add to Cart</button>
                 <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? "red" : ""
-            }" onclick="Add_To_Favorite(${item_map.id})" ></i>
+            }" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
             </div>
         </div>
 
@@ -48,62 +48,71 @@ function draw_product_ui(products_item = []) {
     products_Dom.innerHTML = products_ui.join("");
 }
 // draw_product_ui()
-draw_product_ui(JSON.parse(localStorage.getItem("products")) || products);
+draw_product_ui(
+    JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B
+);
 
 // check if items in localStoreage
-let addedItem = JSON.parse(localStorage.getItem("productsInCart"))
-    ? JSON.parse(localStorage.getItem("productsInCart"))
+let add_item = JSON.parse(localStorage.getItem("productCart_set"))
+    ? JSON.parse(localStorage.getItem("productCart_set"))
     : [];
 
-if (addedItem) {
-    addedItem.map((item) => {
-        cartProductDivDom.innerHTML += `<p>${item.title} ${item.qty} </p>`;
+if (add_item) {
+    add_item.map((item) => {
+        carts_products_div_Dom.innerHTML += `<p>${item.title_obj} ${item.qty_obj} </p>`;
     });
 
-    badgeDom.style.display = "block";
-    badgeDom.innerHTML += addedItem.length;
+    badge_Dom.style.display = "block";
+    badge_Dom.innerHTML += add_item.length;
 }
 
 // ********************************************
 // ********************************************
 // ********************************************
-
 // add to cart
-function addedToCart(id) {
-    console.log("addedToCart", addedToCart);
+function addToCart(id_item) {
+    console.log("addToCart", addToCart)
 
-    if (localStorage.getItem("username")) {
-        let ppp = JSON.parse(localStorage.getItem("products")) || products;
+    if (localStorage.getItem("username_set")) {
 
-        let product = ppp.find((item) => item.id === id);
+        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B;
 
-        let isProductInCart = addedItem.some((i) => i.id === product.id);
+        let product__choosen = ppp.find(
+            (find_item) => find_item.id_obj === id_item
+        );
 
-        if (isProductInCart) {
-            addedItem = addedItem.map((p) => {
-                if (p.id === product.id) p.qty += 1;
-                return p;
+        let is_product_in_cart = add_item.some(
+            (i_some) => i_some.id_obj === product__choosen.id_obj
+        );
+
+        if (is_product_in_cart) {
+            add_item = add_item.map((item_map) => {
+                if (item_map.id_obj === product__choosen.id_obj) item_map.qty_obj += 1;
+                return item_map;
+
+                // if (item_map.id_obj === product__choosen.id_obj)
+                //     product__choosen.qty_obj += 1;
+
             });
         } else {
-            addedItem.push(product);
+            add_item.push(product__choosen);
         }
 
         // UI
-        cartProductDivDom.innerHTML = "";
+        carts_products_div_Dom.innerHTML = "";
 
-        addedItem.forEach((item) => {
-            cartProductDivDom.innerHTML += `<p>${item.title} ${item.qty} </p>`;
-            // cartProductDivDom.innerHTML += `<p>${item.title} <span class='item-qty'>${item.qty}</span></p>`;
+        add_item.forEach((item_forEach) => {
+            carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`;
         });
 
         // save data
-        localStorage.setItem("productsInCart", JSON.stringify(addedItem));
+        localStorage.setItem("productCart_set", JSON.stringify(add_item));
 
         // Add counter of items
-        let cartProductItems = document.querySelectorAll(".carts_products div p");
+        let cart_length_P = document.querySelectorAll(".carts_products div p");
 
-        badgeDom.style.display = "block";
-        badgeDom.innerHTML = cartProductItems.length;
+        badge_Dom.style.display = "block";
+        badge_Dom.innerHTML = cart_length_P.length;
     } else {
         window.location = "login.html";
     }
@@ -128,7 +137,7 @@ function Get_Unique_Array(arr_item, filter_Type_item) {
 
 // open cart menu
 function open_cart_menu() {
-    if (cartProductDivDom.innerHTML != "") {
+    if (carts_products_div_Dom.innerHTML != "") {
         if (carts_products_menu.style.display == "block") {
             carts_products_menu.style.display = "none";
         } else {
@@ -147,15 +156,15 @@ function save_item_data(id_item) {
 let input = document.querySelector("#search");
 
 input.addEventListener("keyup", function (e) {
-    search(e.target.value, JSON.parse(localStorage.getItem("products")));
+    search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")));
 
     if (e.target.value.trim() === "") {
-        draw_product_ui(JSON.parse(localStorage.getItem("products")));
+        draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
     }
 });
 
 function search(title_item, myArray) {
-    let arr = myArray.filter((item) => item.title.indexOf(title_item) !== -1);
+    let arr = myArray.filter((item) => item.title_obj.indexOf(title_item) !== -1);
     draw_product_ui(arr);
 }
 
@@ -166,29 +175,31 @@ let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
 
 // add to Favorite
 function Add_To_Favorite(id_item) {
-    if (localStorage.getItem("username")) {
-        let choosen_item = products.find((find_item) => find_item.id === id_item);
+    if (localStorage.getItem("username_set")) {
+        let choosen_item = product_Data_B.find(
+            (find_item) => find_item.id_obj === id_item
+        );
 
         choosen_item.liked = true;
 
         Favorite_item_s = [...Favorite_item_s, choosen_item];
 
-        let unique_Products = Get_Unique_Array(Favorite_item_s, "id");
+        let unique_Products = Get_Unique_Array(Favorite_item_s, "id_obj");
 
         localStorage.setItem(
             "product_Favorite_set",
             JSON.stringify(unique_Products)
         );
 
-        products.map((item_map) => {
-            if (item_map.id === choosen_item.id) {
+        product_Data_B.map((item_map) => {
+            if (item_map.id_obj === choosen_item.id_obj) {
                 item_map.liked = true;
             }
         });
 
-        localStorage.setItem("products", JSON.stringify(products));
+        localStorage.setItem("product_obj_set", JSON.stringify(product_Data_B));
 
-        draw_product_ui(products);
+        draw_product_ui(product_Data_B);
     } else {
         window.location = "login.html";
     }

@@ -7,7 +7,7 @@ let password_login = document.querySelector("#password");
 let login_btn = document.querySelector("#sign_in");
 
 
-let get_user = localStorage.getItem("username")
+let get_user = localStorage.getItem("username_set")
 let get_password = localStorage.getItem("password_set")
 
 login_btn.addEventListener("click", login)

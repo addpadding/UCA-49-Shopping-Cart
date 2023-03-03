@@ -9,7 +9,7 @@ let logout_Btn = document.querySelector("#logout")
 
 
 
-let username_check = localStorage.getItem("username")
+let username_check = localStorage.getItem("username_set")
 
 if (username_check) {
     link_s.remove()

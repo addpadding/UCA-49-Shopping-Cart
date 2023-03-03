@@ -24,7 +24,7 @@ function get_product_size_value(e) {
 function Craete_Product_Fun(e) {
     e.preventDefault();
 
-    let all_product_storage = JSON.parse(localStorage.getItem("products")) || product_obj;
+    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set")) || product_obj;
     let name_value = create_Name.value;
     let desc_value = create_Desc.value;
 
@@ -32,9 +32,9 @@ function Craete_Product_Fun(e) {
 
         let Create_Obj = {
 
-            id: all_product_storage ? all_product_storage.length + 1 : 1,
+            id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
 
-            title: name_value,
+            title_obj: name_value,
 
             desc_obj: desc_value,
 
@@ -42,11 +42,11 @@ function Craete_Product_Fun(e) {
 
             imageURL_obj: products_image,
 
-            qty: 1,
+            qty_obj: 1,
         };
 
         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
-        localStorage.setItem("products", JSON.stringify(new_product_Storage));
+        localStorage.setItem("product_obj_set", JSON.stringify(new_product_Storage));
 
         create_Name.value = "";
         create_Desc.value = "";

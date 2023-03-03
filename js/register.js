@@ -22,7 +22,7 @@ function register(e) {
         alert("please Fill Data")
 
     } else {
-        localStorage.setItem("username", username_register.value)
+        localStorage.setItem("username_set", username_register.value)
         localStorage.setItem("email_set", email_register.value)
         localStorage.setItem("password_set", password_register.value)
 
