@@ -69,6 +69,9 @@ if (add_item) {
 // add to cart
 function addToCart(id_item) {
     if (localStorage.getItem("username_set")) {
+
+        let product = JSON.parse(localStorage.getItem("product_obj_set")) || ppp;
+
         let product__choosen = product_Data_B.find(
             (find_item) => find_item.id_obj === id_item
         );
