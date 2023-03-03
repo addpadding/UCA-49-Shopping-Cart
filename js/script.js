@@ -11,17 +11,17 @@ let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
 let product_Data_B = product_obj;
-console.log("ppp", product_Data_B)
+// console.log("ppp", product_Data_B)
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
 function draw_product_ui(product_Data_B_item = []) {
-    console.log("in", product_Data_B_item)
+    // console.log("in", product_Data_B_item)
 
     let products_ui = product_Data_B_item.map((item_map) => {
-        console.log("eee", item_map);
+        // console.log("eee", item_map);
 
         return `
         <div class="product_item">
@@ -68,13 +68,19 @@ if (add_item) {
 
 // add to cart
 function addToCart(id_item) {
+    console.log("addToCart", addToCart)
+
     if (localStorage.getItem("username_set")) {
 
-        let product_new = JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B;
+        let products = JSON.parse(localStorage.getItem("product_obj_set")) || products;
 
-        let product__choosen = product_new.find(
+        // let product_new = JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B;
+        // console.log("product_new", product_new)
+
+        let product__choosen = products.find(
             (find_item) => find_item.id_obj === id_item
         );
+        // console.log("product__choosen", product__choosen)
 
         let is_product_in_cart = add_item.some(
             (i_some) => i_some.id_obj === product__choosen.id_obj
