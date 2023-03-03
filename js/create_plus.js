@@ -23,7 +23,8 @@ function Craete_Product_Fun(e) {
 
     let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set"))
     let name_value = create_Name.value;
-    let desc_value = create_Desc.value;
+    // let desc_value = create_Desc.value;
+    let desc_value = "Lorem ipsum dolor sit amet consectetur.";
 
     let Create_Obj = {
 
