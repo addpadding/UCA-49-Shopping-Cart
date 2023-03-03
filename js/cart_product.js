@@ -37,7 +37,7 @@ function draw_cart_ui(all_product = []) {
         `
     });
 
-    products_Dom_2.innerHTML = products_ui;
+    products_Dom_2.innerHTML = products_ui.join("");
 }
 
 draw_cart_ui()

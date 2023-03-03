@@ -37,7 +37,7 @@ function draw_favorite_ui(all_product = []) {
         `
     });
 
-    products_Dom_2.innerHTML = products_ui;
+    products_Dom_2.innerHTML = products_ui.join("");
 }
 
 // <button class="add_to_cart" onclick="remove_item_from_Cart(${item.id_obj})" >Remove from Cart</button>
