@@ -13,6 +13,7 @@ let products_size_value;
 // Events
 create_Siza_Select.addEventListener("change", get_product_size_value);
 create_Form.addEventListener("submit", Craete_Product_Fun);
+input_File.addEventListener("change", upload_image);
 
 // Functions
 function get_product_size_value(e) {
@@ -53,3 +54,5 @@ function Craete_Product_Fun(e) {
 
 }
 
+// upload_image
+function upload_image() { }
