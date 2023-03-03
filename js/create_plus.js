@@ -55,4 +55,7 @@ function Craete_Product_Fun(e) {
 }
 
 // upload_image
-function upload_image() { }
+function upload_image() {
+    let file_e = this.file_s[0]
+    console.log(file_e)
+}
