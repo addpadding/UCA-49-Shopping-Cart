@@ -52,6 +52,10 @@ function Craete_Product_Fun(e) {
         create_Desc.value = "";
         create_Siza_Select.value = "";
 
+        setTimeout(() => {
+            window.location = "index.html"
+        }, 500);
+
     } else {
         alert("Enter Data ..")
     }
