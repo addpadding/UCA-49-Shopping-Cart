@@ -42,7 +42,7 @@ function draw_product_ui(product_Data_B = []) {
         `;
     });
 
-    products_Dom.innerHTML = products_ui;
+    products_Dom.innerHTML = products_ui.join("");
 }
 // draw_product_ui()
 draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
