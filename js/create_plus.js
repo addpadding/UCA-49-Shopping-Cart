@@ -73,9 +73,22 @@ function upload_image() {
         return;
     }
 
-    products_image = URL.createObjectURL(file_e)
+    get_img_Base_64(file_e);
+    // products_image = URL.createObjectURL(file_e)
 }
 
 function get_img_Base_64(file_item) {
     let reader = new FileReader()
+
+    reader.readAsDataURL(file_item)
+
+    reader.onload = function () {
+        // console.log(reader.result);
+        products_image = reader.result
+    };
+
+    reader.onerror = function () {
+        alert("Error !!");
+    };
+
 }
