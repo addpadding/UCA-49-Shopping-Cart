@@ -75,3 +75,5 @@ function upload_image() {
 
     products_image = URL.createObjectURL(file_e)
 }
+
+function get_img_Base_64(file_item) { }
