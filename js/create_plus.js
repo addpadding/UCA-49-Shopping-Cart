@@ -54,14 +54,16 @@ function Craete_Product_Fun(e) {
 
 }
 
-let type = ["image/jpeg", "image/png"]
+let preview
 
 // upload_image
 function upload_image() {
     let file_e = this.files[0];
     console.log(file_e);
 
-    if (!file_e.type === "image/jpeg" || !file_e.type === "image/png") {
+    let type_s = ["image/jpeg", "image/png"]
+
+    if (type_s.indexOf(file_e.type) == -1) {
         alert("type not support")
         return;
     }
