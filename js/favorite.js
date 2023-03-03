@@ -22,9 +22,7 @@ function draw_favorite_ui(all_product = []) {
 
         <div class="product_item_desc">
             <h2>${item.title_obj}</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur.
-            </p>
+            <p>${item.desc_obj}</p>
             <span> size : ${item.size_obj} </span> <br>
             <span> Quntatit : ${item.qty_obj} </span>
         </div>

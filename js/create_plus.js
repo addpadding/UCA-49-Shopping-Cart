@@ -10,8 +10,8 @@ let create_Form = document.getElementById("create_product_form");
 let products_size_value;
 
 // Events
-create_Siza_Select.addEventListener("change", get_product_size_value)
-create_Form.addEventListener("submit", Craete_Product_Fun)
+create_Siza_Select.addEventListener("change", get_product_size_value);
+create_Form.addEventListener("submit", Craete_Product_Fun);
 
 // Functions
 function get_product_size_value(e) {
@@ -21,18 +21,21 @@ function get_product_size_value(e) {
 function Craete_Product_Fun(e) {
     e.preventDefault();
 
-    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set"))
+    let all_product_storage = JSON.parse(localStorage.getItem("product_obj_set"));
     let name_value = create_Name.value;
-    // let desc_value = create_Desc.value;
-    let desc_value = "Lorem ipsum dolor sit amet consectetur.";
+    let desc_value = create_Desc.value;
 
     let Create_Obj = {
-
         id_Create: all_product_storage.length + 1,
+
         qty_Create: 1,
+
         size_Create: products_size_value,
+
         title_Create: name_value,
 
-    }
+        desc_Create: desc_value,
+    };
 
+    let new_product = [...all_product_storage, Create_Obj]
 }

@@ -27,9 +27,7 @@ function draw_product_ui(product_Data_B = []) {
         <div class="product_item_desc">
             <a onclick="save_item_data(${item_map.id_obj})">${item_map.title_obj
             }</a>
-            <p>
-                Lorem ipsum dolor sit amet consectetur.
-            </p>
+            <p>${item_map.desc_obj}</p>
             <span> size : ${item_map.size_obj} </span>
         </div>
 
