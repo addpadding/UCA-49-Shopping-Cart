@@ -9,6 +9,7 @@ let create_Form = document.getElementById("create_product_form");
 let input_File = document.getElementById("upload_img_file");
 
 let products_size_value;
+let products_image;
 
 // Events
 create_Siza_Select.addEventListener("change", get_product_size_value);
@@ -54,7 +55,7 @@ function Craete_Product_Fun(e) {
 
 }
 
-let preview
+let preview;
 
 // upload_image
 function upload_image() {
@@ -72,4 +73,7 @@ function upload_image() {
         alert("img not Exced 2MG")
         return;
     }
+
+    preview = URL.createObjectURL(file_e)
+    console.log("o", preview)
 }
