@@ -45,7 +45,7 @@ function draw_product_ui(product_Data_B = []) {
     products_Dom.innerHTML = products_ui.join("");
 }
 // draw_product_ui()
-draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
+draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B);
 
 // check if items in localStoreage
 let add_item = JSON.parse(localStorage.getItem("productCart_set"))
@@ -63,7 +63,7 @@ if (add_item) {
 
 
 // add to cart
-let all_item = [];
+// let all_item = [];
 // add to cart
 function addToCart(id_item) {
     if (localStorage.getItem("username_set")) {
