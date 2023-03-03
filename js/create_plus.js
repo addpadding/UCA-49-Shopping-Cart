@@ -20,4 +20,9 @@ function get_product_size_value(e) {
     products_size_value = e.target.value;
 }
 
-function Craete_Product_Fun(e) { }
+function Craete_Product_Fun(e) {
+    e.preventDefault();
+
+    let name_value = create_Name.value;
+    let desc_value = create_Desc.value;
+}
