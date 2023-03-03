@@ -6,6 +6,7 @@ let create_Name = document.getElementById("create_product_name");
 let create_Desc = document.getElementById("create_product_desc");
 let create_Siza_Select = document.getElementById("create_product_size_select");
 let create_Form = document.getElementById("create_product_form");
+let input_File = document.getElementById("upload_img_file");
 
 let products_size_value;
 
@@ -25,22 +26,30 @@ function Craete_Product_Fun(e) {
     let name_value = create_Name.value;
     let desc_value = create_Desc.value;
 
-    let Create_Obj = {
-        id_Create: all_product_storage ? all_product_storage.length + 1 : 1,
+    if (name_value && desc_value) {
 
-        qty_Create: 1,
+        let Create_Obj = {
+            id_Create: all_product_storage ? all_product_storage.length + 1 : 1,
 
-        size_Create: products_size_value,
+            qty_Create: 1,
 
-        title_Create: name_value,
+            size_Create: products_size_value,
 
-        desc_Create: desc_value,
-    };
+            title_Create: name_value,
 
-    let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
-    localStorage.setItem("product_obj_set", JSON.stringify(new_product_Storage));
+            desc_Create: desc_value,
+        };
 
-    create_Name.value = "";
-    create_Desc.value = "";
-    create_Siza_Select.value = "";
+        let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
+        localStorage.setItem("product_obj_set", JSON.stringify(new_product_Storage));
+
+        create_Name.value = "";
+        create_Desc.value = "";
+        create_Siza_Select.value = "";
+
+    } else {
+        alert("Enter Data ..")
+    }
+
 }
+
