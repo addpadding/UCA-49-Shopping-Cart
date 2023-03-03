@@ -54,8 +54,20 @@ function Craete_Product_Fun(e) {
 
 }
 
+let type = ["image/jpeg", "image/png"]
+
 // upload_image
 function upload_image() {
-    let file_e = this.file_s[0]
-    console.log(file_e)
+    let file_e = this.files[0];
+    console.log(file_e);
+
+    if (!file_e.type === "image/jpeg" || !file_e.type === "image/png") {
+        alert("type not support")
+        return;
+    }
+
+    if (file_e.size > 2 * 1024 * 1024) {
+        alert("img not Exced 2MG")
+        return;
+    }
 }
