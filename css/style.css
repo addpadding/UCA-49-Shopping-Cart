@@ -235,6 +235,19 @@ header {
 .product_s {
     width: 60%;
     margin: 10px 0;
+    float: left;
+}
+
+.product_filter {
+    width: 35%;
+    margin: 10px 0;
+    float: right;
+}
+
+.product_filter #size_filter {
+    display: block;
+    width: 100%;
+    height: 40px;
 }
 
 .product_item {
