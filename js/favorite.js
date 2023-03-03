@@ -21,14 +21,14 @@ function draw_favorite_ui(all_product = []) {
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
 
         <div class="product_item_desc">
-            <h2>${item.title_obj}</h2>
+            <h2>${item.title}</h2>
             <p>${item.desc_obj}</p>
             <span> size : ${item.size_obj} </span> <br>
-            <span> Quntatit : ${item.qty_obj} </span>
+            <span> Quntatit : ${item.qty} </span>
         </div>
 
         <div class="product_item_actions">
-            <button class="add_to_cart" onclick="remove_item_from_favorite(${item.id_obj})" >Remove from Cart</button>
+            <button class="add_to_cart" onclick="remove_item_from_favorite(${item.id})" >Remove from Cart</button>
         </div>
     </div>
 
@@ -47,7 +47,7 @@ function remove_item_from_favorite(id_item) {
     if (product_in_Favorite) {
         let item_s = JSON.parse(product_in_Favorite);
 
-        let filter_item = item_s.filter((item) => item.id_obj !== id_item)
+        let filter_item = item_s.filter((item) => item.id !== id_item)
 
         localStorage.setItem("product_Favorite_set", JSON.stringify(filter_item))
 

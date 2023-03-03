@@ -7,32 +7,32 @@ let drawProductsUI;
 (drawProductsUI = function (products = []) {
     let productsUI = products.map((item) => {
         return `
-      <div class="product-item" style="border: ${item.isMe === "Y" ? "2px solid green" : ""
+    <div class="product-item" style="border: ${item.isMe === "Y" ? "2px solid green" : ""
             }">
         <img
-          src="${item.imageUrl}"
-          class="product-item-img"
-          alt="image"
+        src="${item.imageUrl}"
+        class="product-item-img"
+        alt="image"
         />
 
         <div class="product-item-desc">
-          <a onclick='saveItemData(${item.id})'>${item.title}</a>
-          <p>${item.desc}</p>
-          <span> Size: ${item.size} </span>
+        <a onclick='saveItemData(${item.id})'>${item.title}</a>
+        <p>${item.desc}</p>
+        <span> Size: ${item.size} </span>
 
-          ${item.isMe === "Y" &&
+        ${item.isMe === "Y" &&
             "<button class='edit-product' onclick='editProduct(" +
             item.id +
             ")'> Edit Product </button>"
             }
         </div>
         <div class="product-item-actions">
-          <button class="add-to-cart" onclick="addedToCart(${item.id
+        <button class="add-to-cart" onclick="addedToCart(${item.id
             })">Add To Cart</button>
-          <i class="favorite far fa-heart" style="color: ${item.liked == true ? "red" : ""
+        <i class="favorite far fa-heart" style="color: ${item.liked == true ? "red" : ""
             }" onclick="addToFavorite(${item.id})"></i>
         </div>
-      </div>
+    </div>
     `;
     });
 
@@ -40,8 +40,20 @@ let drawProductsUI;
 })(JSON.parse(localStorage.getItem("products")) || products);
 
 // Add To cart
+
+
+
+
+
+
+
+
+// ********************************************
+// ********************************************
+// ********************************************
+
 function addedToCart(id) {
-    console.log("addedToCart", addedToCart)
+    console.log("addedToCart", addedToCart);
 
     if (localStorage.getItem("username")) {
         // let products = JSON.parse(localStorage.getItem("products")) || products;
@@ -58,8 +70,10 @@ function addedToCart(id) {
         } else {
             addedItem.push(product);
         }
+
         // UI
         cartProductDivDom.innerHTML = "";
+
         addedItem.forEach((item) => {
             cartProductDivDom.innerHTML += `<p>${item.title} <span class='item-qty'>${item.qty}</span></p>`;
         });
@@ -75,6 +89,20 @@ function addedToCart(id) {
         window.location = "login.html";
     }
 }
+
+
+// ********************************************
+// ********************************************
+// ********************************************
+
+
+
+
+
+
+
+
+
 
 function getUniqueArr(arr, filterType) {
     let unique = arr
