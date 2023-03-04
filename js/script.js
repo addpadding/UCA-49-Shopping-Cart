@@ -224,4 +224,5 @@ function get_products_filter_by_size(e) {
 
     let val = e.target.value;
 
+    let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || productsMain)
 }
