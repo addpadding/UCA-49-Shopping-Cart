@@ -10,18 +10,15 @@ let carts_products_div_Dom = document.querySelector(".carts_products div");
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
-let product_Data_B = product_obj;
-// console.log("ppp", product_Data_B)
+let productsMain = product_obj;
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
-function draw_product_ui(product_Data_B_item = []) {
-    // console.log("in", product_Data_B_item)
+function draw_product_ui(products_item = []) {
 
-    let products_ui = product_Data_B_item.map((item_map) => {
-        // console.log("eee", item_map);
+    let products_ui = products_item.map((item_map) => {
 
         return `
         <div class="product_item">
@@ -49,7 +46,7 @@ function draw_product_ui(product_Data_B_item = []) {
 }
 // draw_product_ui()
 draw_product_ui(
-    JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B
+    JSON.parse(localStorage.getItem("product_obj_set")) || productsMain
 );
 
 // check if items in localStoreage
@@ -75,7 +72,7 @@ function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
-        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B;
+        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || productsMain;
 
         let product__choosen = ppp.find(
             (find_item) => find_item.id_obj === id_item
@@ -189,7 +186,7 @@ let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
 // add to Favorite
 function Add_To_Favorite(id_item) {
     if (localStorage.getItem("username_set")) {
-        let choosen_item = product_Data_B.find(
+        let choosen_item = productsMain.find(
             (find_item) => find_item.id_obj === id_item
         );
 
@@ -204,15 +201,15 @@ function Add_To_Favorite(id_item) {
             JSON.stringify(unique_Products)
         );
 
-        product_Data_B.map((item_map) => {
+        productsMain.map((item_map) => {
             if (item_map.id_obj === choosen_item.id_obj) {
                 item_map.liked = true;
             }
         });
 
-        localStorage.setItem("product_obj_set", JSON.stringify(product_Data_B));
+        localStorage.setItem("product_obj_set", JSON.stringify(productsMain));
 
-        draw_product_ui(product_Data_B);
+        draw_product_ui(productsMain);
     } else {
         window.location = "login.html";
     }
