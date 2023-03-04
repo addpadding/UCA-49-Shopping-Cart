@@ -1,7 +1,7 @@
 // Data
 console.log("Data")
 
-let product_obj = [
+let products_Data_obj = [
 
     {
         id_obj: 1,
@@ -41,4 +41,4 @@ let product_obj = [
 
 ];
 
-// localStorage.setItem("products_Data_set", JSON.stringify(product_obj))
+// localStorage.setItem("products_Data_set", JSON.stringify(products_Data_obj))

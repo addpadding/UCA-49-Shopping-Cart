@@ -12,10 +12,10 @@ function draw_cart_ui(all_product = []) {
         no_products_Dom.innerHTML = "no item"
     }
 
-    let product_obj_item =
+    let product_item =
         JSON.parse(localStorage.getItem("productCart_set")) || all_product
 
-    let products_ui = product_obj_item.map((item) => {
+    let products_ui = product_item.map((item) => {
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">

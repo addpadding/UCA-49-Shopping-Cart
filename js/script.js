@@ -10,7 +10,7 @@ let carts_products_div_Dom = document.querySelector(".carts_products div");
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
-let productsMain = product_obj;
+let productsMain = products_Data_obj;
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);

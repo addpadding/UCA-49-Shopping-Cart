@@ -24,7 +24,7 @@ function get_product_size_value(e) {
 function Craete_Product_Fun(e) {
     e.preventDefault();
 
-    let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || product_obj;
+    let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
     let name_value = create_Name.value;
     let desc_value = create_Desc.value;
 
