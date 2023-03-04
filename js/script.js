@@ -220,3 +220,7 @@ function Add_To_Favorite(id_item) {
 
 // filter products by size
 let size_filter = document.getElementById("size_filter_select")
+
+size_filter.addEventListener("change", get_products_filter_by_size)
+
+function get_products_filter_by_size(e) { }
