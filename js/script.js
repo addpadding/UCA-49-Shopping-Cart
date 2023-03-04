@@ -217,3 +217,6 @@ function Add_To_Favorite(id_item) {
         window.location = "login.html";
     }
 }
+
+// filter products by size
+let size_filter = document.getElementById("size_filter_select")
