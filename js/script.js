@@ -46,7 +46,7 @@ function draw_product_ui(products_item = []) {
 }
 // draw_product_ui()
 draw_product_ui(
-    JSON.parse(localStorage.getItem("product_obj_set")) || productsMain
+    JSON.parse(localStorage.getItem("products_Data_set")) || productsMain
 );
 
 // check if items in localStoreage
@@ -72,7 +72,7 @@ function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
-        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || productsMain;
+        let ppp = JSON.parse(localStorage.getItem("products_Data_set")) || productsMain;
 
         let product__choosen = ppp.find(
             (find_item) => find_item.id_obj === id_item
@@ -166,10 +166,10 @@ function save_item_data(id_item) {
 let input = document.querySelector("#search");
 
 input.addEventListener("keyup", function (e) {
-    search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")));
+    search(e.target.value, JSON.parse(localStorage.getItem("products_Data_set")));
 
     if (e.target.value.trim() === "") {
-        draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
+        draw_product_ui(JSON.parse(localStorage.getItem("products_Data_set")));
     }
 });
 
@@ -207,7 +207,7 @@ function Add_To_Favorite(id_item) {
             }
         });
 
-        localStorage.setItem("product_obj_set", JSON.stringify(productsMain));
+        localStorage.setItem("products_Data_set", JSON.stringify(productsMain));
 
         draw_product_ui(productsMain);
     } else {
