@@ -43,6 +43,8 @@ function Craete_Product_Fun(e) {
             imageURL_obj: products_image,
 
             qty_obj: 1,
+
+            isMe_obj: "Y",
         };
 
         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];

@@ -10,6 +10,7 @@ let products_Data_obj = [
         size_obj: "large",
         imageURL_obj: "images/01.jpg",
         qty_obj: 1,
+        isMe_obj: "N",
     },
 
     {
@@ -19,6 +20,7 @@ let products_Data_obj = [
         size_obj: "small",
         imageURL_obj: "images/02.jpg",
         qty_obj: 1,
+        isMe_obj: "N",
     },
 
     {
@@ -28,6 +30,7 @@ let products_Data_obj = [
         size_obj: "medium",
         imageURL_obj: "images/03.jpg",
         qty_obj: 1,
+        isMe_obj: "N",
     },
 
     {
@@ -37,6 +40,7 @@ let products_Data_obj = [
         size_obj: "large",
         imageURL_obj: "images/04.jpeg",
         qty_obj: 1,
+        isMe_obj: "N",
     }
 
 ];
