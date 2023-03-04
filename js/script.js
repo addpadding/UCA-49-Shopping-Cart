@@ -10,15 +10,18 @@ let carts_products_div_Dom = document.querySelector(".carts_products div");
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
-let productsMain = products_Data_obj;
+let product_Data_B = product_obj;
+// console.log("ppp", product_Data_B)
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
 // Display products
-function draw_product_ui(products_item = []) {
+function draw_product_ui(product_Data_B_item = []) {
+    // console.log("in", product_Data_B_item)
 
-    let products_ui = products_item.map((item_map) => {
+    let products_ui = product_Data_B_item.map((item_map) => {
+        // console.log("eee", item_map);
 
         return `
         <div class="product_item">
@@ -44,8 +47,9 @@ function draw_product_ui(products_item = []) {
 
     products_Dom.innerHTML = products_ui.join("");
 }
+// draw_product_ui()
 draw_product_ui(
-    JSON.parse(localStorage.getItem("products_Data_obj_set")) || productsMain
+    JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B
 );
 
 // check if items in localStoreage
@@ -71,7 +75,7 @@ function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
-        let ppp = JSON.parse(localStorage.getItem("products_Data_obj_set")) || productsMain;
+        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || product_Data_B;
 
         let product__choosen = ppp.find(
             (find_item) => find_item.id_obj === id_item
@@ -165,10 +169,10 @@ function save_item_data(id_item) {
 let input = document.querySelector("#search");
 
 input.addEventListener("keyup", function (e) {
-    search(e.target.value, JSON.parse(localStorage.getItem("products_Data_obj_set")));
+    search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")));
 
     if (e.target.value.trim() === "") {
-        draw_product_ui(JSON.parse(localStorage.getItem("products_Data_obj_set")));
+        draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
     }
 });
 
@@ -185,7 +189,7 @@ let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
 // add to Favorite
 function Add_To_Favorite(id_item) {
     if (localStorage.getItem("username_set")) {
-        let choosen_item = productsMain.find(
+        let choosen_item = product_Data_B.find(
             (find_item) => find_item.id_obj === id_item
         );
 
@@ -200,15 +204,15 @@ function Add_To_Favorite(id_item) {
             JSON.stringify(unique_Products)
         );
 
-        productsMain.map((item_map) => {
+        product_Data_B.map((item_map) => {
             if (item_map.id_obj === choosen_item.id_obj) {
                 item_map.liked = true;
             }
         });
 
-        localStorage.setItem("products_Data_obj_set", JSON.stringify(productsMain));
+        localStorage.setItem("product_obj_set", JSON.stringify(product_Data_B));
 
-        draw_product_ui(productsMain);
+        draw_product_ui(product_Data_B);
     } else {
         window.location = "login.html";
     }
@@ -223,5 +227,4 @@ function get_products_filter_by_size(e) {
 
     let val = e.target.value;
 
-    let products_Storage = JSON.parse(localStorage.getItem("products_Data_obj_set") || productsMain)
 }

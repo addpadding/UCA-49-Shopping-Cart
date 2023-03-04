@@ -12,10 +12,10 @@ function draw_favorite_ui(all_product = []) {
         no_products_Dom.innerHTML = "no item"
     }
 
-    let products_Data_obj_item =
+    let product_obj_item =
         JSON.parse(localStorage.getItem("product_Favorite_set")) || all_product
 
-    let products_ui = products_Data_obj_item.map((item) => {
+    let products_ui = product_obj_item.map((item) => {
         return `
     <div class="product_item">
         <img class="product_item_img" src="${item.imageURL_obj}" alt="">
