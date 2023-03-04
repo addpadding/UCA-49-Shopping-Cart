@@ -174,9 +174,10 @@ input.addEventListener("keyup", function (e) {
 });
 
 function search(title_item, myArray) {
-    let arr = myArray.filter((item) => item.title_obj.indexOf(title_item) !== -1);
+    let arr = myArray.filter((item) => item.title_obj.toLowerCase().indexOf(title_item.toLowerCase()) !== -1);
     draw_product_ui(arr);
 }
+
 
 // add to Favorite + check if items in localStoreage
 let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))

@@ -244,7 +244,7 @@ header {
     float: right;
 }
 
-.product_filter #size_filter {
+.product_filter #size_filter_select {
     display: block;
     width: 100%;
     height: 40px;
