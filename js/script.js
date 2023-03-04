@@ -223,4 +223,9 @@ let size_filter = document.getElementById("size_filter_select")
 
 size_filter.addEventListener("change", get_products_filter_by_size)
 
-function get_products_filter_by_size(e) { }
+function get_products_filter_by_size(e) {
+
+    console.log(e.target.value);
+
+    let val = e.target.value;
+}
