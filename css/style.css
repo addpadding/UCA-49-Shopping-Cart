@@ -297,6 +297,16 @@ header {
     margin-left: auto;
 }
 
+.edit_product {
+    display: block;
+    width: 140px;
+    border: none;
+    background-color: #52057b;
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
 /* ================== Details ================== */
 
 .item_Details img {

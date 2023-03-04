@@ -21,7 +21,7 @@ function draw_product_ui(products_item = []) {
     let products_ui = products_item.map((item_map) => {
 
         return `
-        <div class="product_item">
+        <div class="product_item" style="border: ${item_map.isMe_obj === "Y" ? "2px solid #52057b" : ""} ">
             <img class="product_item_img" src="${item_map.imageURL_obj}" alt="">
 
             <div class="product_item_desc">
@@ -29,15 +29,18 @@ function draw_product_ui(products_item = []) {
             }</a>
                 <p>${item_map.desc_obj}</p>
                 <span> size : ${item_map.size_obj} </span>
-            </div>
 
-            <div class="product_item_actions">
-                <button class="add_to_cart" onclick="addToCart(${item_map.id_obj
+                ${item_map.isMe_obj === "Y" && "<button class='edit_product'> Edit Product </button>"
+            }
+            </div >
+
+        <div class="product_item_actions">
+            <button class="add_to_cart" onclick="addToCart(${item_map.id_obj
             })" >Add to Cart</button>
-                <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? "red" : ""
+            <i class="favorite far fa-heart" style="color: ${item_map.liked == true ? " red" : ""
             }" onclick="Add_To_Favorite(${item_map.id_obj})" ></i>
-            </div>
-        </div>
+            </div >
+        </div >
 
         `;
     });
@@ -56,7 +59,7 @@ let add_item = JSON.parse(localStorage.getItem("productCart_set"))
 
 if (add_item) {
     add_item.map((item) => {
-        carts_products_div_Dom.innerHTML += `<p>${item.title_obj} ${item.qty_obj} </p>`;
+        carts_products_div_Dom.innerHTML += `< p > ${item.title_obj} ${item.qty_obj} </p > `;
     });
 
     badge_Dom.style.display = "block";
@@ -112,7 +115,7 @@ function addToCart(id_item) {
         carts_products_div_Dom.innerHTML = "";
 
         add_item.forEach((item_forEach) => {
-            carts_products_div_Dom.innerHTML += `<p>${item_forEach.title_obj} ${item_forEach.qty_obj} </p>`;
+            carts_products_div_Dom.innerHTML += `< p > ${item_forEach.title_obj} ${item_forEach.qty_obj} </p > `;
         });
 
         // save data
