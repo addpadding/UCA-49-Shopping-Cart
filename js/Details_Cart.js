@@ -1,4 +1,4 @@
-let productsMain2 = JSON.parse(localStorage.getItem("product_obj_set"))
+let productsMain2 = JSON.parse(localStorage.getItem("products_Data_obj_set"))
 
 let products_id = localStorage.getItem("product_Id_set")
 

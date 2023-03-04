@@ -10,7 +10,7 @@ let carts_products_div_Dom = document.querySelector(".carts_products div");
 let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
-let productsMain = product_obj;
+let productsMain = products_Data_obj;
 
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
@@ -45,7 +45,7 @@ function draw_product_ui(products_item = []) {
     products_Dom.innerHTML = products_ui.join("");
 }
 draw_product_ui(
-    JSON.parse(localStorage.getItem("product_obj_set")) || productsMain
+    JSON.parse(localStorage.getItem("products_Data_obj_set")) || productsMain
 );
 
 // check if items in localStoreage
@@ -71,7 +71,7 @@ function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
 
-        let ppp = JSON.parse(localStorage.getItem("product_obj_set")) || productsMain;
+        let ppp = JSON.parse(localStorage.getItem("products_Data_obj_set")) || productsMain;
 
         let product__choosen = ppp.find(
             (find_item) => find_item.id_obj === id_item
@@ -165,10 +165,10 @@ function save_item_data(id_item) {
 let input = document.querySelector("#search");
 
 input.addEventListener("keyup", function (e) {
-    search(e.target.value, JSON.parse(localStorage.getItem("product_obj_set")));
+    search(e.target.value, JSON.parse(localStorage.getItem("products_Data_obj_set")));
 
     if (e.target.value.trim() === "") {
-        draw_product_ui(JSON.parse(localStorage.getItem("product_obj_set")));
+        draw_product_ui(JSON.parse(localStorage.getItem("products_Data_obj_set")));
     }
 });
 
@@ -206,7 +206,7 @@ function Add_To_Favorite(id_item) {
             }
         });
 
-        localStorage.setItem("product_obj_set", JSON.stringify(productsMain));
+        localStorage.setItem("products_Data_obj_set", JSON.stringify(productsMain));
 
         draw_product_ui(productsMain);
     } else {
@@ -223,5 +223,5 @@ function get_products_filter_by_size(e) {
 
     let val = e.target.value;
 
-    let products_Storage = JSON.parse(localStorage.getItem("product_obj_set") || productsMain)
+    let products_Storage = JSON.parse(localStorage.getItem("products_Data_obj_set") || productsMain)
 }
