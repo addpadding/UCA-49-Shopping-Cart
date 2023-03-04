@@ -225,4 +225,11 @@ function get_products_filter_by_size(e) {
     let val = e.target.value;
 
     let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || productsMain)
+
+    if (val === "all") {
+        draw_product_ui(products_Storage);
+    } else {
+        products_Storage = products_Storage.filter((item) => item.size_obj === val);
+        draw_product_ui(products_Storage);
+    }
 }
