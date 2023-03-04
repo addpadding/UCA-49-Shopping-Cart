@@ -225,7 +225,7 @@ size_filter.addEventListener("change", get_products_filter_by_size)
 
 function get_products_filter_by_size(e) {
 
-    console.log(e.target.value);
-
     let val = e.target.value;
+
+    let products_Storage = JSON.parse(localStorage.getItem("product_obj_set") || product_Data_B)
 }
