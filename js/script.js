@@ -49,7 +49,6 @@ function draw_product_ui(products_item = []) {
 
     products_Dom.innerHTML = products_ui.join("");
 }
-// draw_product_ui()
 draw_product_ui(
     JSON.parse(localStorage.getItem("products_Data_set")) || productsMain
 );
