@@ -57,3 +57,6 @@ function edit_product(id_item) {
 
     window.location = "edit_products.html"
 }
+
+// Delete product
+function Delete_fun() { }
