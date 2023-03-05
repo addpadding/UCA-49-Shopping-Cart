@@ -6,7 +6,7 @@ let products_Dom_2 = document.querySelector(".product_s")
 let no_products_Dom = document.querySelector(".no_products")
 
 // Display products
-function draw_product_ui(products_item = []) {
+function draw_product_ui_2(products_item = []) {
 
     // 002
     let MY__product = products_item.filter(item => item.isMe_obj === "Y")
@@ -48,7 +48,7 @@ function draw_product_ui(products_item = []) {
     }
 
 }
-draw_product_ui(JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj);
+draw_product_ui_2(JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj);
 
 
 // edit product
@@ -66,7 +66,7 @@ function Delete_fun(id_item) {
 
     let filter_ed = MY__product.filter((item) => item.id_obj !== id_item)
 
-    draw_product_ui(filter_ed)
+    draw_product_ui_2(filter_ed)
 
     localStorage.setItem("products_Data_set", JSON.stringify(products_Data_obj))
 }
