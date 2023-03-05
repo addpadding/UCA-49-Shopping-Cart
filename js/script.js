@@ -15,7 +15,7 @@ let productsMain = products_Data_obj;
 // open cart menu
 shopping_cart_icon.addEventListener("click", open_cart_menu);
 
-// Display products
+// 001 Display products
 function draw_product_ui(products_item = []) {
 
     let products_ui = products_item.map((item_map) => {
@@ -55,9 +55,7 @@ draw_product_ui(
 
 
 // ********************************************
-// ********************************************
-// ********************************************
-// add to cart
+// 002 add to cart
 function addToCart(id_item) {
 
     if (localStorage.getItem("username_set")) {
@@ -117,11 +115,9 @@ function addToCart(id_item) {
         window.location = "login.html";
     }
 }
-
-// ********************************************
-// ********************************************
 // ********************************************
 
+// 003 Unique
 function Get_Unique_Array(arr_item, filter_Type_item) {
     let unique = arr_item
         .map((item_map_1) => item_map_1[filter_Type_item])
@@ -135,14 +131,14 @@ function Get_Unique_Array(arr_item, filter_Type_item) {
     return unique;
 }
 
-
+// 005 save
 function save_item_data(id_item) {
     localStorage.setItem("product_Id_set", id_item);
 
     window.location = "Details_Cart.html";
 }
 
-// search function
+//006 search function
 let input = document.querySelector("#search");
 
 input.addEventListener("keyup", function (e) {
@@ -153,18 +149,19 @@ input.addEventListener("keyup", function (e) {
     }
 });
 
+// 006 search
 function search(title_item, myArray) {
     let arr = myArray.filter((item) => item.title_obj.toLowerCase().indexOf(title_item.toLowerCase()) !== -1);
     draw_product_ui(arr);
 }
 
 
-// add to Favorite + check if items in localStoreage
+// 007 add to Favorite + check if items in localStoreage
 let Favorite_item_s = JSON.parse(localStorage.getItem("product_Favorite_set"))
     ? JSON.parse(localStorage.getItem("product_Favorite_set"))
     : [];
 
-// add to Favorite
+// 007 add to Favorite
 function Add_To_Favorite(id_item) {
     if (localStorage.getItem("username_set")) {
         let choosen_item = productsMain.find(
@@ -196,11 +193,12 @@ function Add_To_Favorite(id_item) {
     }
 }
 
-// filter products by size
+//002 filter products by size
 let size_filter = document.getElementById("size_filter_select")
 
 size_filter.addEventListener("change", get_products_filter_by_size)
 
+//002 filter by size
 function get_products_filter_by_size(e) {
 
     let val = e.target.value;
@@ -215,7 +213,7 @@ function get_products_filter_by_size(e) {
     }
 }
 
-// edit product
+// 003 edit product
 function edit_product(id_item) {
     localStorage.setItem("Edit_set", id_item)
 
