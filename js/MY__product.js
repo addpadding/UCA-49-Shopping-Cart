@@ -29,7 +29,8 @@ function draw_product_ui(products_item = []) {
                         <p>${item_map.desc_obj}</p>
                         <span> size : ${item_map.size_obj} </span>
 
-                    <button class='edit_product' onclick=" __Edit(${item_map.id_obj})"> Edit Product </button>
+                    <button class='edit_product' onclick=" edit_product(${item_map.id_obj})"> Edit Product </button>
+                    <br>
                     <button class='edit_product' onclick=" ___delete(${item_map.id_obj})"> ___delete Product </button>
                 </div >
 
@@ -48,3 +49,11 @@ function draw_product_ui(products_item = []) {
 draw_product_ui(
     JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj
 );
+
+
+// edit product
+function edit_product(id_item) {
+    localStorage.setItem("Edit_set", id_item)
+
+    window.location = "edit_products.html"
+}

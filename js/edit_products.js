@@ -4,7 +4,7 @@ console.log("edit_products");
 
 // variables
 let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || products_Data_obj)
-let id_pro_Storage = JSON.parse(localStorage.getItem("EditProduct_set"))
+let id_pro_Storage = JSON.parse(localStorage.getItem("Edit_set"))
 
 // find
 let get_product = products_Storage.find(item => item.id_obj === id_pro_Storage)
