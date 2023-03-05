@@ -3,17 +3,13 @@ console.log("Home");
 
 // define product
 let products_Dom = document.querySelector(".product_s");
-
-let carts_products_menu = document.querySelector(".carts_products");
+// let carts_products_menu = document.querySelector(".carts_products");
 let carts_products_div_Dom = document.querySelector(".carts_products div");
-
-let shopping_cart_icon = document.querySelector(".shopping_cart");
 let badge_Dom = document.querySelector(".badge");
 
 let productsMain = products_Data_obj;
 
-// open cart menu
-shopping_cart_icon.addEventListener("click", open_cart_menu);
+
 
 // 001 Display products
 function draw_product_ui(products_item = []) {
