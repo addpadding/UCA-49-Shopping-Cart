@@ -242,6 +242,7 @@ function get_products_filter_by_size(e) {
 
 // edit product
 function edit_product(id_item) {
-    console.log("id_item", id_item)
+    localStorage.setItem("EditProduct_set", id_item)
 
+    window.location = "edit_products.html"
 }
