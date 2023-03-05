@@ -336,3 +336,16 @@ header {
 .create_product_icon:hover {
     opacity: 0.8;
 }
+
+/* ================== item_qty ================== */
+.item_qty {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+}
