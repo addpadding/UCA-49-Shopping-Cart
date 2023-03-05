@@ -135,16 +135,6 @@ function Get_Unique_Array(arr_item, filter_Type_item) {
     return unique;
 }
 
-// open cart menu
-function open_cart_menu() {
-    if (carts_products_div_Dom.innerHTML != "") {
-        if (carts_products_menu.style.display == "block") {
-            carts_products_menu.style.display = "none";
-        } else {
-            carts_products_menu.style.display = "block";
-        }
-    }
-}
 
 function save_item_data(id_item) {
     localStorage.setItem("product_Id_set", id_item);
