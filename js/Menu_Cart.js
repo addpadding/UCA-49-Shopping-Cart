@@ -17,3 +17,14 @@ if (add_item) {
     badge_Dom_2.innerHTML += add_item.length;
 }
 
+
+// open cart menu
+function open_cart_menu() {
+    if (carts_products_div_Dom.innerHTML != "") {
+        if (carts_products_menu.style.display == "block") {
+            carts_products_menu.style.display = "none";
+        } else {
+            carts_products_menu.style.display = "block";
+        }
+    }
+}
