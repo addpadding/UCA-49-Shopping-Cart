@@ -30,7 +30,9 @@ function draw_product_ui(products_item = []) {
                 <p>${item_map.desc_obj}</p>
                 <span> size : ${item_map.size_obj} </span>
 
-                ${item_map.isMe_obj === "Y" && "<button class='edit_product'> Edit Product </button>"
+                ${item_map.isMe_obj === "Y" && "<button class='edit_product' onclick='edit_product(" +
+            item_map.id_obj +
+            ")'> Edit Product </button>"
             }
             </div >
 
@@ -236,4 +238,10 @@ function get_products_filter_by_size(e) {
         products_Storage = products_Storage.filter((item) => item.size_obj === val);
         draw_product_ui(products_Storage);
     }
+}
+
+// edit product
+function edit_product(id_item) {
+    console.log("id_item", id_item)
+
 }
