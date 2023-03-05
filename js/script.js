@@ -53,19 +53,6 @@ draw_product_ui(
     JSON.parse(localStorage.getItem("products_Data_set")) || productsMain
 );
 
-// // check if items in localStoreage
-// let add_item = JSON.parse(localStorage.getItem("productCart_set"))
-//     ? JSON.parse(localStorage.getItem("productCart_set"))
-//     : [];
-
-// if (add_item) {
-//     add_item.map((item) => {
-//         carts_products_div_Dom.innerHTML += `<p> ${item.title_obj} ${item.qty_obj} </p> `;
-//     });
-
-//     badge_Dom.style.display = "block";
-//     badge_Dom.innerHTML += add_item.length;
-// }
 
 // ********************************************
 // ********************************************
