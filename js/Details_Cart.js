@@ -13,4 +13,12 @@ Details_item_Dom.innerHTML = `
 <p> ${product_Details.desc_obj} </p>
 <span> size : ${product_Details.size_obj} </span> <br>
 <span> Quntatit : ${product_Details.qty_obj} </span>
+<br>
+<button onclick="edit_product(${products_id})"> Edit_product </button>
 `
+//  edit product
+function edit_product(id_item) {
+    localStorage.setItem("Edit_set", id_item)
+
+    window.location = "edit_products.html"
+}
