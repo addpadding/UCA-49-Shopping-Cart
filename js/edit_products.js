@@ -1,11 +1,13 @@
 // edit_products
 console.log("edit_products");
 
-let productsMain3 = products_Data_obj;
 
+let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || products_Data_obj)
+let id_pro_Storage = JSON.parse(localStorage.getItem("EditProduct_set"))
 
-let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || productsMain3)
-console.log("products_Storage", products_Storage)
+let get_product = products_Storage.find(item => item.id_obj === id_pro_Storage)
+
+console.log(get_product)
 
 
 // // variables
