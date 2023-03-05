@@ -8,6 +8,7 @@ let id_pro_Storage = JSON.parse(localStorage.getItem("EditProduct_set"))
 
 // find
 let get_product = products_Storage.find(item => item.id_obj === id_pro_Storage)
+console.log("before update", get_product)
 
 
 
@@ -45,8 +46,14 @@ function update_Product_Fun(e) {
     get_product.size_obj = products_size_value
     get_product.imageURL_obj = products_image
 
+    console.log("after update", get_product)
+
 
     localStorage.setItem("products_Data_set", JSON.stringify(products_Storage));
+
+    setTimeout(() => {
+        window.location = "index.html";
+    }, 500);
 }
 
 // upload_image
