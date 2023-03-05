@@ -10,6 +10,8 @@ let MY__product = products_Storage.filter(item => item.isMe_obj === "Y");
 // variables
 let username_profile_DOM = document.getElementById("username")
 let email_profile_DOM = document.getElementById("email")
+let product_length = document.querySelector("#product_length span")
 
-username_profile_DOM.innerHTML = username_Storage
-email_profile_DOM.innerHTML = email_Storage
+username_profile_DOM.innerHTML = username_Storage;
+email_profile_DOM.innerHTML = email_Storage;
+product_length.innerHTML = MY__product.length;
