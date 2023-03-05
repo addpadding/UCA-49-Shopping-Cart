@@ -19,59 +19,61 @@ let products_size_value;
 let products_image;
 
 product_Name.value = get_product.title_obj
+product_Desc.value = get_product.desc_obj
+product_Siza_Select.value = get_product.size_obj
 
-// // Events
-// product_Siza_Select.addEventListener("change", get_product_size_value);
-// create_Form.addEventListener("submit", Craete_Product_Fun);
+// Events
+product_Siza_Select.addEventListener("change", get_product_size_value);
+create_Form.addEventListener("submit", update_Product_Fun);
 // input_File.addEventListener("change", upload_image);
 
-// // Functions
-// function get_product_size_value(e) {
-//     products_size_value = e.target.value;
-// }
+// Functions
+function get_product_size_value(e) {
+    products_size_value = e.target.value;
+}
 
-// function Craete_Product_Fun(e) {
-//     e.preventDefault();
+function update_Product_Fun(e) {
+    //     e.preventDefault();
 
-//     let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
-//     let name_value = product_Name.value;
-//     let desc_value = product_Desc.value;
+    //     let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
+    //     let name_value = product_Name.value;
+    //     let desc_value = product_Desc.value;
 
-//     if (name_value && desc_value) {
+    //     if (name_value && desc_value) {
 
-//         let Create_Obj = {
+    //         let Create_Obj = {
 
-//             id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
+    //             id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
 
-//             title_obj: name_value,
+    //             title_obj: name_value,
 
-//             desc_obj: desc_value,
+    //             desc_obj: desc_value,
 
-//             size_obj: products_size_value,
+    //             size_obj: products_size_value,
 
-//             imageURL_obj: products_image,
+    //             imageURL_obj: products_image,
 
-//             qty_obj: 1,
+    //             qty_obj: 1,
 
-//             isMe_obj: "Y",
-//         };
+    //             isMe_obj: "Y",
+    //         };
 
-//         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
-//         localStorage.setItem("products_Data_set", JSON.stringify(new_product_Storage));
+    //         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
+    //         localStorage.setItem("products_Data_set", JSON.stringify(new_product_Storage));
 
-//         product_Name.value = "";
-//         product_Desc.value = "";
-//         product_Siza_Select.value = "";
+    //         product_Name.value = "";
+    //         product_Desc.value = "";
+    //         product_Siza_Select.value = "";
 
-//         setTimeout(() => {
-//             window.location = "index.html"
-//         }, 500);
+    //         setTimeout(() => {
+    //             window.location = "index.html"
+    //         }, 500);
 
-//     } else {
-//         alert("Enter Data ..")
-//     }
+    //     } else {
+    //         alert("Enter Data ..")
+    //     }
 
-// }
+}
 
 // // upload_image
 // function upload_image() {
