@@ -61,6 +61,7 @@ function edit_product(id_item) {
 // Delete product
 function Delete_fun(id_item) {
     let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || products_Data_obj)
+
     let MY__product = products_Storage.filter(item => item.isMe_obj === "Y")
     console.log("MY__product", MY__product)
 
@@ -68,5 +69,7 @@ function Delete_fun(id_item) {
 
     draw_product_ui_2(filter_ed)
 
-    localStorage.setItem("products_Data_set", JSON.stringify(products_Data_obj))
+    let clicked_item = MY__product.find((item) => item.id_obj === id_item)
+
+    localStorage.setItem("products_Data_set", JSON.stringify(products_Storage))
 }
