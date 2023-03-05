@@ -1,99 +1,106 @@
-// create_plus
-console.log("create_plus");
+// edit_products
+console.log("edit_products");
 
-// variables
-let create_Name = document.getElementById("create_product_name");
-let create_Desc = document.getElementById("create_product_desc");
-let create_Siza_Select = document.getElementById("create_product_size_select");
-let update_Form = document.getElementById("update_product_form");
-let input_File = document.getElementById("upload_img_file");
+let productsMain3 = products_Data_obj;
 
-let products_size_value;
-let products_image;
 
-// Events
-create_Siza_Select.addEventListener("change", get_product_size_value);
-create_Form.addEventListener("submit", Craete_Product_Fun);
-input_File.addEventListener("change", upload_image);
+let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || productsMain3)
+console.log("products_Storage", products_Storage)
 
-// Functions
-function get_product_size_value(e) {
-    products_size_value = e.target.value;
-}
 
-function Craete_Product_Fun(e) {
-    e.preventDefault();
+// // variables
+// let create_Name = document.getElementById("create_product_name");
+// let create_Desc = document.getElementById("create_product_desc");
+// let create_Siza_Select = document.getElementById("create_product_size_select");
+// let update_Form = document.getElementById("update_product_form");
+// let input_File = document.getElementById("upload_img_file");
 
-    let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
-    let name_value = create_Name.value;
-    let desc_value = create_Desc.value;
+// let products_size_value;
+// let products_image;
 
-    if (name_value && desc_value) {
+// // Events
+// create_Siza_Select.addEventListener("change", get_product_size_value);
+// create_Form.addEventListener("submit", Craete_Product_Fun);
+// input_File.addEventListener("change", upload_image);
 
-        let Create_Obj = {
+// // Functions
+// function get_product_size_value(e) {
+//     products_size_value = e.target.value;
+// }
 
-            id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
+// function Craete_Product_Fun(e) {
+//     e.preventDefault();
 
-            title_obj: name_value,
+//     let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
+//     let name_value = create_Name.value;
+//     let desc_value = create_Desc.value;
 
-            desc_obj: desc_value,
+//     if (name_value && desc_value) {
 
-            size_obj: products_size_value,
+//         let Create_Obj = {
 
-            imageURL_obj: products_image,
+//             id_obj: all_product_storage ? all_product_storage.length + 1 : 1,
 
-            qty_obj: 1,
+//             title_obj: name_value,
 
-            isMe_obj: "Y",
-        };
+//             desc_obj: desc_value,
 
-        let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
-        localStorage.setItem("products_Data_set", JSON.stringify(new_product_Storage));
+//             size_obj: products_size_value,
 
-        create_Name.value = "";
-        create_Desc.value = "";
-        create_Siza_Select.value = "";
+//             imageURL_obj: products_image,
 
-        setTimeout(() => {
-            window.location = "index.html"
-        }, 500);
+//             qty_obj: 1,
 
-    } else {
-        alert("Enter Data ..")
-    }
+//             isMe_obj: "Y",
+//         };
 
-}
+//         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
+//         localStorage.setItem("products_Data_set", JSON.stringify(new_product_Storage));
 
-// upload_image
-function upload_image() {
-    let file_e = this.files[0];
+//         create_Name.value = "";
+//         create_Desc.value = "";
+//         create_Siza_Select.value = "";
 
-    let type_s = ["image/jpeg", "image/png"]
+//         setTimeout(() => {
+//             window.location = "index.html"
+//         }, 500);
 
-    if (type_s.indexOf(file_e.type) == -1) {
-        alert("type not support")
-        return;
-    }
+//     } else {
+//         alert("Enter Data ..")
+//     }
 
-    if (file_e.size > 2 * 1024 * 1024) {
-        alert("img not Exced 2MG")
-        return;
-    }
+// }
 
-    get_img_Base_64(file_e);
-}
+// // upload_image
+// function upload_image() {
+//     let file_e = this.files[0];
 
-function get_img_Base_64(file_item) {
-    let reader = new FileReader()
+//     let type_s = ["image/jpeg", "image/png"]
 
-    reader.readAsDataURL(file_item)
+//     if (type_s.indexOf(file_e.type) == -1) {
+//         alert("type not support")
+//         return;
+//     }
 
-    reader.onload = function () {
-        products_image = reader.result
-    };
+//     if (file_e.size > 2 * 1024 * 1024) {
+//         alert("img not Exced 2MG")
+//         return;
+//     }
 
-    reader.onerror = function () {
-        alert("Error !!");
-    };
+//     get_img_Base_64(file_e);
+// }
 
-}
+// function get_img_Base_64(file_item) {
+//     let reader = new FileReader()
+
+//     reader.readAsDataURL(file_item)
+
+//     reader.onload = function () {
+//         products_image = reader.result
+//     };
+
+//     reader.onerror = function () {
+//         alert("Error !!");
+//     };
+
+// }
