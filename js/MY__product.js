@@ -13,6 +13,7 @@ function draw_product_ui(products_item = []) {
 
     // 002
     if (MY__product) {
+        console.log("MY__product = yes ", MY__product)
 
         // 003
         let products_ui = MY__product.map((item_map) => {
@@ -31,7 +32,7 @@ function draw_product_ui(products_item = []) {
 
                     <button class='edit_product' onclick=" edit_product(${item_map.id_obj})"> Edit Product </button>
                     <br>
-                    <button class='edit_product' onclick=" ___delete(${item_map.id_obj})"> ___delete Product </button>
+                    <button class='edit_product' onclick=" Delete_fun(${item_map.id_obj})"> Delete Product </button>
                 </div >
 
             </div >
@@ -42,13 +43,12 @@ function draw_product_ui(products_item = []) {
         products_Dom_2.innerHTML = products_ui.join("");
 
     } else {
+        console.log("MY__product = no ", MY__product)
         no_products_Dom.innerHTML = "No Product !!"
     }
 
 }
-draw_product_ui(
-    JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj
-);
+draw_product_ui(JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj);
 
 
 // edit product
@@ -59,10 +59,14 @@ function edit_product(id_item) {
 }
 
 // Delete product
-function Delete_fun() {
+function Delete_fun(id_item) {
     let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || products_Data_obj)
     let MY__product = products_Storage.filter(item => item.isMe_obj === "Y")
+    console.log("MY__product", MY__product)
 
-    let filter_ed = MY__product
+    let filter_ed = MY__product.filter((item) => item.id_obj !== id_item)
 
+    draw_product_ui(filter_ed)
+
+    localStorage.setItem("products_Data_set", JSON.stringify(products_Data_obj))
 }
