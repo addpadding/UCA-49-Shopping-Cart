@@ -73,7 +73,6 @@ if (add_item) {
 // ********************************************
 // add to cart
 function addToCart(id_item) {
-    console.log("addToCart", addToCart)
 
     if (localStorage.getItem("username_set")) {
 
@@ -117,7 +116,7 @@ function addToCart(id_item) {
         carts_products_div_Dom.innerHTML = "";
 
         add_item.forEach((item_forEach) => {
-            carts_products_div_Dom.innerHTML += `< p > ${item_forEach.title_obj} ${item_forEach.qty_obj} </p > `;
+            carts_products_div_Dom.innerHTML += `<p> ${item_forEach.title_obj} ${item_forEach.qty_obj} </p> `;
         });
 
         // save data
