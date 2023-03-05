@@ -2,26 +2,26 @@
 console.log("edit_products");
 
 
+// variables
 let products_Storage = JSON.parse(localStorage.getItem("products_Data_set") || products_Data_obj)
 let id_pro_Storage = JSON.parse(localStorage.getItem("EditProduct_set"))
 
 let get_product = products_Storage.find(item => item.id_obj === id_pro_Storage)
 
-console.log(get_product)
 
 
-// // variables
-// let create_Name = document.getElementById("create_product_name");
-// let create_Desc = document.getElementById("create_product_desc");
-// let create_Siza_Select = document.getElementById("create_product_size_select");
-// let update_Form = document.getElementById("update_product_form");
-// let input_File = document.getElementById("upload_img_file");
+let product_Name = document.getElementById("create_product_name");
+let product_Desc = document.getElementById("create_product_desc");
+let product_Siza_Select = document.getElementById("create_product_size_select");
+let update_Form = document.getElementById("update_product_form");
+let input_File = document.getElementById("upload_img_file");
+let products_size_value;
+let products_image;
 
-// let products_size_value;
-// let products_image;
+product_Name.value = get_product.title_obj
 
 // // Events
-// create_Siza_Select.addEventListener("change", get_product_size_value);
+// product_Siza_Select.addEventListener("change", get_product_size_value);
 // create_Form.addEventListener("submit", Craete_Product_Fun);
 // input_File.addEventListener("change", upload_image);
 
@@ -34,8 +34,8 @@ console.log(get_product)
 //     e.preventDefault();
 
 //     let all_product_storage = JSON.parse(localStorage.getItem("products_Data_set")) || products_Data_obj;
-//     let name_value = create_Name.value;
-//     let desc_value = create_Desc.value;
+//     let name_value = product_Name.value;
+//     let desc_value = product_Desc.value;
 
 //     if (name_value && desc_value) {
 
@@ -59,9 +59,9 @@ console.log(get_product)
 //         let new_product_Storage = all_product_storage ? [...all_product_storage, Create_Obj] : [Create_Obj];
 //         localStorage.setItem("products_Data_set", JSON.stringify(new_product_Storage));
 
-//         create_Name.value = "";
-//         create_Desc.value = "";
-//         create_Siza_Select.value = "";
+//         product_Name.value = "";
+//         product_Desc.value = "";
+//         product_Siza_Select.value = "";
 
 //         setTimeout(() => {
 //             window.location = "index.html"
