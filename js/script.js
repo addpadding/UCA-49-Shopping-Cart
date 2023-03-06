@@ -2,9 +2,16 @@
 console.log("Home");
 
 let get_lang = localStorage.getItem("lang_Dir_set")
-if (condition) {
 
+if (get_lang) {
+
+    if (get_lang === "rtl") {
+        change_direction("rtl");
+    } else {
+        change_direction("ltr");
+    }
 }
+
 
 let products_Dom = document.querySelector(".product_s");
 let carts_products_div_Dom = document.querySelector(".carts_products div");
@@ -217,5 +224,5 @@ ar.addEventListener("click", () => change_direction("rtl"))
 
 function change_direction(item_dir) {
     document.documentElement.setAttribute("dir", item_dir)
-    localStorage.setItem("lang_Dir_set", dir)
+    localStorage.setItem("lang_Dir_set", item_dir)
 }
