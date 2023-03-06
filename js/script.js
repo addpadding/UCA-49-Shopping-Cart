@@ -201,3 +201,5 @@ function edit_product(id_item) {
 
     window.location = "edit_products.html"
 }
+
+function change_direction() { }
