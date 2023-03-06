@@ -207,6 +207,10 @@ function edit_product(id_item) {
 let en = document.getElementById("en_lang")
 let ar = document.getElementById("ar_lang")
 
+en.addEventListener("click", () => change_direction("ltr"))
+ar.addEventListener("click", () => change_direction("rtl"))
+
 function change_direction(item_dir) {
     document.documentElement.setAttribute("dir", item_dir)
+    localStorage.setItem("lang_Dir_set", dir)
 }

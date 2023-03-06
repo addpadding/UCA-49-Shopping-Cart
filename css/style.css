@@ -373,3 +373,11 @@ header {
     background-color: #333;
     color: #fff;
 }
+
+/* ================== direction ================== */
+#en_lang,
+#ar_lang {
+    color: royalblue;
+    cursor: pointer;
+    font-size: 20px;
+}
