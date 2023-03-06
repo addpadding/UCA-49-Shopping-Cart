@@ -14,4 +14,9 @@ let product_length = document.querySelector("#product_length span")
 
 username_profile_DOM.innerHTML = username_Storage;
 email_profile_DOM.innerHTML = email_Storage;
-product_length.innerHTML = MY__product.length;
+
+if (MY__product.length != 0) {
+    product_length.innerHTML = MY__product.length;
+} else {
+    product_length.remove()
+}
