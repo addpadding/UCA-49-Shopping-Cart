@@ -1,18 +1,6 @@
 // Home
 console.log("Home");
 
-let get_lang = localStorage.getItem("lang_Dir_set")
-
-if (get_lang) {
-
-    if (get_lang === "rtl") {
-        change_direction("rtl");
-    } else {
-        change_direction("ltr");
-    }
-}
-
-
 let products_Dom = document.querySelector(".product_s");
 let carts_products_div_Dom = document.querySelector(".carts_products div");
 let badge_Dom = document.querySelector(".badge");
@@ -212,17 +200,4 @@ function edit_product(id_item) {
     localStorage.setItem("Edit_set", id_item)
 
     window.location = "edit_products.html"
-}
-
-// lang Dir
-
-let en = document.getElementById("en_lang")
-let ar = document.getElementById("ar_lang")
-
-en.addEventListener("click", () => change_direction("ltr"))
-ar.addEventListener("click", () => change_direction("rtl"))
-
-function change_direction(item_dir) {
-    document.documentElement.setAttribute("dir", item_dir)
-    localStorage.setItem("lang_Dir_set", item_dir)
 }
