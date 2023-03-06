@@ -17,4 +17,10 @@ email_Edit_profile.value = email_Storage2;
 // Events
 form_Edit_profile.addEventListener("submit", Data_Edit_profile)
 
-function Data_Edit_profile(item) { }
+function Data_Edit_profile(item) {
+    e.preventDefault();
+
+    localStorage.setItem("username_Edit_profile_set", username_Edit_profile.value)
+    localStorage.setItem("email_Edit_profile_set", email_Edit_profile.value)
+
+}
