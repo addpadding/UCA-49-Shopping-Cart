@@ -1,6 +1,11 @@
 // Home
 console.log("Home");
 
+let get_lang = localStorage.getItem("lang_Dir_set")
+if (condition) {
+
+}
+
 let products_Dom = document.querySelector(".product_s");
 let carts_products_div_Dom = document.querySelector(".carts_products div");
 let badge_Dom = document.querySelector(".badge");
