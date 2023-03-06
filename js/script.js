@@ -202,4 +202,11 @@ function edit_product(id_item) {
     window.location = "edit_products.html"
 }
 
-function change_direction() { }
+// lang Dir
+
+let en = document.getElementById("en_lang")
+let ar = document.getElementById("ar_lang")
+
+function change_direction(item_dir) {
+    document.documentElement.setAttribute("dir", item_dir)
+}
